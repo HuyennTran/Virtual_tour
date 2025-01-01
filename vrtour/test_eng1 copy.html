@@ -1,31 +1,28 @@
 <!doctype html>
 <html>
   <head>
-    <!-- <script src="./src/aframe-animation-component.min.js"></script> -->
-    <script src="./src/aframe.min.js"></script>
-    <!-- <link href="./src/font/Roboto(1)/Roboto-Medium.ttf" rel="stylesheet"> -->
-    <script src="/src/aframe-gui.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate"></meta>
-    <meta http-equiv="Pragma" content="no-cache"></meta>
 
-    <script src="./src/aframe-event-set-component.min.js"></script>
-    <script src="./src/TDSLoader.js"></script>
-    <!-- <script src="./src/all.min.css"></script> -->
-    <script src ="./src/aframe-extras.min.js" ></script>
-    <script src ="./src/aframe-htmlembed-component/dist/build.js" ></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/three@0.131.3/examples/js/loaders/TDSLoader.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src ="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src ="https://unpkg.com/aframe-extras@6.1.0/dist/aframe-extras.min.js" ></script>
 
     <script src="./index.js"></script>
 
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     
-    
+  
     <link rel="stylesheet" href="./WEBVR/style.css"> 
     <script src="./WEBVR/script.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
-
 
     <title> HUST CAMPUS TOUR </title>
 <style>
@@ -93,8 +90,8 @@
       overflow: hidden;
     }
     .menu{
-      width:  790px;
-      height: 790px;
+      width:  768px;
+      height: 768px;
       text-align: center;
     }
     .menu ul{
@@ -182,6 +179,7 @@
      
     <a-scene id="loading" stats loading-screen="dotsColor: #B8001F; backgroundColor: #FCFAEE"; XRMode: xr>
 
+     
       <a-assets>
 
         <img id="parabol" src="assets/Location/parabol.JPG" />
@@ -214,23 +212,23 @@
       </a-assets>
 
 
-<a-entity id = "guider" gltf-model="#guide" scale =" 0.2 0.2 0.2" position ="0 1.2 -1 " animation-mixer="clip: Experiment" class="collidable" move-controller></a-entity>
-<a-image id="close_menu" src="#close" class="collidable" position="0 2.5 -3"
+      <a-entity id = "guider" gltf-model="#guide" scale =" 0.2 0.2 0.2" position ="0 1.2 -1 " animation-mixer="clip: Experiment" class="collidable" move-controller></a-entity>
+      <a-image id="close_menu" src="#close" class="collidable" position="0 2.5 -3"
       rotation="0 0 0" scale=" 0.2 0.2 0.2" opacity="1" visible= "false" move-controller></a-image>
-
-<a-image id="infob" src="#info" class="collidable" position="-0.3 1.3 -1" 
+<a-image id="infob" src="#info" class="collidable" position="0.1 1.5 -2" 
       rotation="0 0 0" scale="3 3 3" opacity="0.8" visible= "true" move-controller></a-image>
   
-  <!-- <a-image id="closeb" src="#close" class="collidable" position="-0.6 1.3 -1"
-      rotation="0 0 0" scale=" 0.1 0.1 0" opacity="0.8" visible= "false" move-controller></a-image> -->
- 
+  <a-image id="closeb" src="#close" class="collidable" position="-0.8 1.4 -1"
+      rotation="0 0 0" scale=" 0.1 0.1 0" opacity="0.8" visible= "false" move-controller></a-image>
+  
+  <!-- <a-image id ="closeb2" src ="#close" class= "colldable" position ="-0.4 1.3 -1" ></a-image> -->
   <a-image id="right" src="#arrow" class="collidable" position="0 10000 11 " rotation="0 0 50"
       scale="3 0.5 1" opacity="0.8" visible=false move-controller></a-image>
 
   <a-image id="left" src="#arrow" class="collidable" position="11 110000 11" rotation="0 0 0"
       scale="3 0.5 0" opacity="0.8" visible=false move-controller></a-image>
 
-      <a-image id="forward" src="#arrow"  class="collidable" position="0 1 2.5" rotation="0 0 0"
+      <a-image id="forward" src="#arrow"class="collidable" position="0 1 2.5" rotation="0 0 0"
       scale=" 3 0.5 0" opacity="0.8" visible=true move-controller></a-image>
 
   <a-image id="back" src="#arrow" class="collidable" position="0 40000 4" rotation="0 0 0"
@@ -238,53 +236,50 @@
   <!-- Sky element -->
 
   <a-sky id="sky" src="#parabol" rotation="0 -90 0"></a-sky>
-
   <a-gui-flex-container 
-    id = "container"
-    flex-direction="column" justify-content="flexStart" align-items="normal" component-padding="0.1" opacity="0.2" width="4.0" height="4.0" 
-    panel-color="#000002" 
-    panel-rounded="0.2"
-    rotation="0 -45 0"
-	  position="1 1 -111111111"
-  
+  id = "container"
+  flex-direction="column" justify-content="flexStart" align-items="normal" component-padding="0.1" opacity="0.2" width="4.0" height="4.0" 
+  panel-color="#000002" 
+  panel-rounded="0.2"
+  rotation="0 -45 0"
+  position="1 1 -111111111"
+
 >
 <a-gui-label
- background-color = #adf0f7;
- font-color = #f6feff;
- id ="Language"
- class ="collidable"
-	width="2.5" height="0.75"
-	value="Language"
-	font-size="0.3"
-  font-family= "src/font/Roboto(1)/Roboto-Regular.ttf"
-	line-height="0.8"
-	letter-spacing="0"
-	margin="-0.5 3 3 3"
-  panel-rounded="0.3"
-  opacity = "0.7"
-  gui-interactable
+background-color = #adf0f7;
+font-color = #f6feff;
+id ="Language"
+class ="collidable"
+width="2.5" height="0.75"
+value="Language"
+font-size="0.3"
+line-height="0.8"
+letter-spacing="0"
+margin="-0.5 3 3 3"
+panel-rounded="0.3"
+opacity = "0.7"
+gui-interactable
 
-  move-controller
+move-controller
 
 >
 </a-gui-label>
 
 <a-gui-label
 background-color = #adf0f7;
- font-color = #f6feff;
+font-color = #f6feff;
 id ="Audio"
 class ="collidable"
- width="2.5" height="0.75"
- value="Play audio"
- font-size="0.3"
- font-family= "src/font/Roboto(1)/Roboto-Regular.ttf"
- line-height="0.8"
- letter-spacing="0"
- panel-rounded="0.2"
- opacity = "0.7"
- gui-interactable
- play
- margin="1 100 100 100"
+width="2.5" height="0.75"
+value="Play audio"
+font-size="0.3"
+line-height="0.8"
+letter-spacing="0"
+panel-rounded="0.2"
+opacity = "0.7"
+gui-interactable
+play
+margin="1 100 100 100"
 >
 </a-gui-label>
 
@@ -308,7 +303,6 @@ move-controller
 	width="2.5" height="0.75"
 	value="Chinese"
 	font-size="0.3"
-  font-family= "src/font/Roboto(1)/Roboto-Regular.ttf"
 	line-height="0.8"
 	letter-spacing="0"
 	margin="-0.5 1 1 1"
@@ -328,7 +322,6 @@ class ="collidable"
  width="2.5" height="0.75"
  value="Vietnamese"
  font-size="0.3"
- font-family= "src/font/Roboto(1)/Roboto-Regular.ttf"
  line-height="0.8"
  letter-spacing="0"
  margin="-0.5 1 1 1"
@@ -348,7 +341,6 @@ class ="collidable"
  width="2.5" height="0.75"
  value="Chinese"
  font-size="0.3"
- font-family="src/font/Roboto(1)/Roboto-Regular.ttf"
  line-height="0.8"
  letter-spacing="0"
  margin="-0.5 1 1 1"
@@ -361,6 +353,8 @@ class ="collidable"
 </a-gui-label>
 
 </a-gui-flex-container>
+<!--------------------------------------------------------------------------------------------------->
+
 
 <!---------------------------------------------------------------------------------------------------->
    <a-entity id="cameraRig">
@@ -375,8 +369,7 @@ class ="collidable"
     </a-camera>
       </a-entity>
       <!---------------------------------------------------------------------------------->
- 
-       <a-entity id="textdemo" class="text1"  htmlembed="ppu:256" position="0 2.5 -6" visible = "true" class="collidable" move-controller>
+      <a-entity id="textdemo" class="text1"  htmlembed="ppu:256" position="0 2.5 -6" visible = "true" class="collidable" move-controller>
         <div class="text">
           <svg class="corner" viewBox="0 0 65 62" fill="none" xmlns="">
               <path d="M35 3.5L65 6.5V62L0 0L35 3.5Z" fill="white"/>
@@ -384,61 +377,62 @@ class ="collidable"
       </div>
       </a-entity>
 
-      
-
 
 <!------------------------------------------------------------------------------------------------------------------>
 
-      <a-entity id="text1" class="screen dark text1" sound="src:#audio1;autoplay:false;refDistance:3" htmlembed="ppu:200" position="0 2.5 -5" visible = "false">
+<a-entity id="text1" class="screen dark text1" sound="src:#audio1;autoplay:false;refDistance:3" htmlembed="ppu:200" position="0 2.5 -5" visible = "false">
         
-        <div id="page1" class="tab1">
-          <h3> Cổng Parabol </h3>
-     
-          <p> Cổng Parabol là cổng đầu tiên và mang tính biểu tượng của Trường Đại học Bách Khoa Hà Nội. Được xây dựng vào năm 1986, cổng Parabol đánh dấu sự phát triển của nhà trường trong thời kỳ đầu xây dựng và mở rộng cơ sở vật chất. Với thiết kế độc đáo dựa trên hình dáng parabol – biểu trưng cho sự chính xác và sáng tạo trong khoa học kỹ thuật – cổng thể hiện tinh thần học thuật và khát vọng vươn xa của nhà trường. Nằm tại cửa ngõ đường Giải Phóng, cổng Parabol chính là niềm tự hào của các thế hệ sinh viên Bách khoa.
-            </p>
+  <div id="page1" class="tab1">
+    <h3> Cổng Parabol </h3>
 
-         </div>
-      </a-entity> 
+    <p> Cổng Parabol là cổng đầu tiên và mang tính biểu tượng của Trường Đại học Bách Khoa Hà Nội. Được xây dựng vào năm 1986, cổng Parabol đánh dấu sự phát triển của nhà trường trong thời kỳ đầu xây dựng và mở rộng cơ sở vật chất. Với thiết kế độc đáo dựa trên hình dáng parabol – biểu trưng cho sự chính xác và sáng tạo trong khoa học kỹ thuật – cổng thể hiện tinh thần học thuật và khát vọng vươn xa của nhà trường. Nằm tại cửa ngõ đường Giải Phóng, cổng Parabol chính là niềm tự hào của các thế hệ sinh viên Bách khoa.
+      </p>
 
-      <a-entity id="pic1" class="screen menu dark" htmlembed="ppu:256" position="-4 2.3 -3" rotation="0 45 0" visible ="false">
-        <div id="page1" class="tab1">
-         <img src ="WEBVR/Image/parabol.jpg" width="790px" height="790px"></img>
-         
-         </div>
-      </a-entity> 
+   </div>
+</a-entity> 
+<a-entity id="pic1" class="screen menu dark" htmlembed="ppu:256" position="-4 2.3 -3" rotation="0 45 0" visible ="false">
+  <div id="page1" class="tab1">
+   <img src ="WEBVR/Image/parabol.JPG" width="790px" height="790px"></img>
+   
+   </div>
+</a-entity> 
 
-      <a-entity id="text2"class="screen dark text1" sound="src:#audio2;autoplay:false;refDistance:3" htmlembed="ppu:256" position="-1 2.5 3" visible = "false">
-        <div id="page1" class="tab1">
-          <h1> Hồ Tiền </h1>
-          <p>Hồ Tiền là một công trình gắn liền với quá trình phát triển và mở rộng cảnh quan của trường từ những năm đầu thành lập. Hồ được xây dựng với mục đích vừa cải thiện môi trường, vừa tạo không gian thư giãn cho cộng đồng trong khuôn viên trường. Đây cũng là nơi tổ chức nhiều hoạt động ngoại khóa, chụp ảnh kỷ niệm, và trở thành một biểu tượng quen thuộc đối với các thế hệ sinh viên Bách Khoa.
-          </p>
-         </div>
-      </a-entity> 
+<a-entity id="text2"class="screen dark text1" sound="src:#audio2;autoplay:false;refDistance:3" htmlembed="ppu:256" position="-1 2.5 -5" visible = "false">
+  <div id="page1" class="tab1">
+    <h1> Hồ Tiền </h1>
+    <p>Hồ Tiền là một công trình gắn liền với quá trình phát triển và mở rộng cảnh quan của trường từ những năm đầu thành lập. Hồ được xây dựng với mục đích vừa cải thiện môi trường, vừa tạo không gian thư giãn cho cộng đồng trong khuôn viên trường. Đây cũng là nơi tổ chức nhiều hoạt động ngoại khóa, chụp ảnh kỷ niệm, và trở thành một biểu tượng quen thuộc đối với các thế hệ sinh viên Bách Khoa.
+    </p>
+   </div>
+</a-entity> 
 
-      <a-entity id="pic2" class="screen menu dark" htmlembed="ppu:256" position="-5 2.5 -5" rotation="0 45 0" visible ="false">
-        <div id="page1" class="tab1">
-         <img src ="WEBVR/Image/hotien.jpg" width="auto" height="auto"></img>
-         </div>
-      </a-entity> 
+<a-entity id="pic2" class="screen menu dark" htmlembed="ppu:256" position="-5 2.5 -5" rotation="0 45 0" visible ="false">
+  <div id="page1" class="tab1">
+   <img src ="WEBVR/Image/hotien.jpg" width="auto" height="auto"></img>
+   </div>
+</a-entity>
 
-
-      <a-entity id="text3"class="screen dark text1" sound="src:#audio3;autoplay:false;refDistance:3" htmlembed="ppu:256" position="0 2.5 2.6" visible = "false" rotation ="0 180 0">
-        <div id="page1" class="tab1">
-          <h1>For the TQB libary</h1>
-          <p>Thư viện Tạ Quang Bửu, được xây dựng vào năm 2006, là một trong những thư viện lớn nhất Đông Nam Á, đóng vai trò là trung tâm học liệu hiện đại của Trường Đại học Bách Khoa Hà Nội. Với diện tích hơn 37.000 m², thư viện nổi bật bởi kiến trúc độc đáo, tích hợp các khu vực tự học, phòng họp nhóm, và không gian nghiên cứu chuyên sâu. Điểm đặc trưng của thư viện là hệ thống tài liệu phong phú với hơn 500.000 đầu sách, tài liệu số hóa hiện đại và các dịch vụ như mượn sách qua ứng dụng và tra cứu điện tử. Đây không chỉ là nơi cung cấp tri thức mà còn là biểu tượng văn hóa, sáng tạo và đổi mới của trường, thu hút sinh viên và nhà nghiên cứu từ khắp nơi.
-          </p>
-         
-         </div>
-      </a-entity> 
+<a-entity id="text3"class="screen dark text1" sound="src:#audio3;autoplay:false;refDistance:3" htmlembed="ppu:256" position="0 2.5 4" visible = "false" rotation ="0 180 0">
+  <div id="page1" class="tab1">
+    <h1>For the TQB libary</h1>
+    <p>Thư viện Tạ Quang Bửu, được xây dựng vào năm 2006, là một trong những thư viện lớn nhất Đông Nam Á, đóng vai trò là trung tâm học liệu hiện đại của Trường Đại học Bách Khoa Hà Nội. Với diện tích hơn 37.000 m², thư viện nổi bật bởi kiến trúc độc đáo, tích hợp các khu vực tự học, phòng họp nhóm, và không gian nghiên cứu chuyên sâu. Điểm đặc trưng của thư viện là hệ thống tài liệu phong phú với hơn 500.000 đầu sách, tài liệu số hóa hiện đại và các dịch vụ như mượn sách qua ứng dụng và tra cứu điện tử. Đây không chỉ là nơi cung cấp tri thức mà còn là biểu tượng văn hóa, sáng tạo và đổi mới của trường, thu hút sinh viên và nhà nghiên cứu từ khắp nơi.
+    </p>
+   
+   </div>
+</a-entity> 
 
 
-      <a-entity id="pic3" class="screen menu dark" htmlembed="ppu:256" position= "2.5 2.5 2.5" rotation="0 225 0" visible ="false">
-        <div id="page1" class="tab1">
-         <img src ="WEBVR/Image/thu-vien-1.jpg" width="auto" height="auto"></img>
-         </div>
-      </a-entity>
-    </a-scene>
-    </div>
+<a-entity id="pic3" class="screen menu dark" htmlembed="ppu:256" position= "3.6 2.5 4" rotation="0 225 0" visible ="false">
+  <div id="page1" class="tab1">
+   <img src ="WEBVR/Image/thu-vien-1.jpg" width="auto" height="auto"></img>
+   </div>
+</a-entity>
+</a-scene>
+</div> 
+
+  
+
+
+      <!---------------------------------------------------------------------------------------------->
  
       <!-------------------------------------------------------------------------------------------------------------------------------------->
      
@@ -670,19 +664,6 @@ let map_back = new Map([
       const arrow_left = document.getElementById("left");
       const arrow_forward = document.getElementById("forward");
       const arrow_back = document.getElementById("back");
-      const sky =  document.getElementById("sky");
-
-      const container = document.getElementById("container");
-
-      const tab1  = document.getElementById("text1");
-      const tab2  = document.getElementById("text2");
-      const tab3  = document.getElementById("text3");
-      const tab4  = document.getElementById("text4");
-
-      const pic1 = document.getElementById("pic1");
-      const pic2 = document.getElementById("pic2");
-      const pic3 = document.getElementById("pic3");
-      const pic4 = document.getElementById("pic4");
 
       arrow_right.addEventListener("raycaster-intersected", (event) => {
           arrow_right.setAttribute("opacity", 1);
@@ -724,106 +705,40 @@ let map_back = new Map([
           arrow_forward.setAttribute("opacity", 0.8);
 
       })
-      var last_time;
-      
       const info_icon = document.getElementById("infob");
-
       info_icon.addEventListener("raycaster-intersected", (event) => {
-          let ngu = new Date();
-          last_time = ngu.getTime()
-          console.log(last_time);
           console.log("Raycaster intersected with info_button");
           info_icon.setAttribute("opacity", 1);
           info_icon.setAttribute("scale", "0.13 0.13 0");
           document.querySelector('#infob').emit('trigger');
 
-          switch (current) {
-                    case "#parabol":
-
-                        console.log("parabol clicked");
-                        tab1.setAttribute('visible', 'true');
-                        pic1.setAttribute("visible", 'true');
-                        container.setAttribute("position", "5 2.6 -3");
-                        console.log('Text visibility set to true');
-                        flag = 1;
-                        break;
-                    case "#lake":
-                        tab2.setAttribute('visible', 'true');
-                        pic2.setAttribute("visible", 'true');
-                        container.setAttribute("position", "3 2.5 -5");
-                        console.log('Text visibility set to true');
-                        flag = 1;
-                        break;
-                    case "#TQB":
-                        tab3.setAttribute('visible', 'true');
-                        pic3.setAttribute("visible", 'true');
-                        container.setAttribute("rotation", "0 135 0");
-                        container.setAttribute("position", "-2.5 2.5 2.5");
-                        console.log('Text visibility set to true');
-                        flag = 1;
-                        break;
-                }
-
 
       })
       info_icon.addEventListener("raycaster-intersected-cleared", (event) => {
-        let ngu = new Date();
-        let curr_time = ngu.getTime();
-        console.log("Deltatime: ", curr_time - last_time);
-        if(curr_time - last_time < 2000){
-
           info_icon.setAttribute("opacity", "0.8");
-          info_icon.setAttribute("visible", "true");
-                console.log("Toi bi ngu");
-                switch (current) {
-                    case "#parabol":
-                        tab1.setAttribute('visible', 'false');
-                        pic1.setAttribute('visible', 'false');
-                        container.setAttribute("position", "-10000 2.5 -4");
-                        console.log("Flag value before checking:", flag);
-                        if (flag == 1) {
-                            console.log("close button visibility set to 0");
-                            flag = 0;
-                        }
-                        break;
-                    case "#lake":
-                        tab2.setAttribute('visible', 'false');
-                        pic2.setAttribute('visible', 'false');
-                        container.setAttribute("position", "-10000 2.5 -6");
-
-                       
-                        if (flag == 1) {
-                            flag = 0;
-                        }
-                        break;
-                    case "#TQB":
-                        tab3.setAttribute('visible', 'false');
-                        pic3.setAttribute('visible', 'false');
-                        container.setAttribute("position", "-10000 2.5 -6");
-
-                 
-                        if (flag == 1) {
-                            flag = 0;
-                        }
-                        break;
-                }
-              }
       })
 
 
       const close_icon = document.getElementById("closeb");
-      const label2 = document.getElementById("Audio"); 
+      close_icon.addEventListener("raycaster-intersected", (event)=>{
+          console.log("Raycaster intersected with close_button");
+          close_icon.setAttribute("opacity", 1);
+          close_icon.setAttribute("scale", "0.13 0.13 0");
+      })
+
+      close_icon.addEventListener("raycaster-intersected-cleared", (event) => {
+          close_icon.setAttribute("opacity", "0.8");
+      })
+
+      const label2 = document.getElementById("Audio"); // Note the typo in ID ("lable2")
       const label3 = document.getElementById("Map");
       const label1 = document.getElementById("Language");
       const language = document.getElementById("language_menu");
-      const map_menu = document.getElementById("map_menu");
-      const locations = document.querySelectorAll('[id^="location"]');
       const close_menub = document.getElementById("close_menu");
 
+  label1.addEventListener('click', selectedLanguage);
 
-label1.addEventListener('click', selectedLanguage);
-
-function selectedLanguage(event) {
+  function selectedLanguage(event) {
   console.log("Language label clicked");
 
   close_menub.setAttribute("position", "1 3.5 -3");
@@ -848,75 +763,52 @@ close_menub.addEventListener("click",(e)=>{
   language.setAttribute("position", "5 2.5 -1000");
   close_menub.setAttribute("visible", "false");
 })
-
-
+<!---------------------------------------------------->
 label1.addEventListener('triggerdown', selectedLanguage);
 
 function selectedLanguage(event) {
-  console.log("Language label clicked");
-
-  close_menub.setAttribute("position", "1 3.5 -3");
-  close_menub.setAttribute("visible", "true");
-  language.setAttribute("position", "0 2.5 -5");
-
-  document.getElementById("CH").addEventListener('click', (e) => {
-    window.location.replace("https://0.0.0.0:12345/indexchin.html");
-  });
-
-  document.getElementById("EN").addEventListener('click', (e) => {
-    window.location.replace("https://0.0.0.0:12345/indexen.html");
-  });
-
-  document.getElementById("VIET").addEventListener('click', (e) => {
-    window.location.replace("https://0.0.0.0:12345/indexviet.html");
-  });
-}
-
-close_menub.addEventListener("click",(e)=>{
-  console.log("clicked close");
-  language.setAttribute("position", "5 2.5 -1000");
-  close_menub.setAttribute("visible", "false");
-})
+console.log("Language label clicked");
+switch (current) {
+         case "#parabol":
+         close_menub.setAttribute("position", "1 3.5 -3");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 1.5 -3");
+        break;
+        case "#lake":
+        close_menub.setAttribute("position", "1 3.5 -3");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 1.5 -4");        
+        break;
+        case "#TQB":
+        close_menub.setAttribute("position", "1 3.5 2.9");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 2.6 3");  
+        language.setAttribute("rotation", "0 180 0");          
+        break;
+    
+                   }
 
 
 
-close_menub.addEventListener("triggerdown",(e)=>{
-  console.log("clicked close");
-  language.setAttribute("position", "5 2.5 -1000");
-  close_menub.setAttribute("visible", "false");
-})
-
-const gps_button = document.getElementById("gps_button");
-const boxes = document.querySelectorAll('[id^="box"]');
-boxes.forEach(box => {
-    box.addEventListener('click', function(event){
-        switch(box.id) {  // Compare the id of the location element
-            case "box1" :
-                console.log("changed to location1");
-                current = "#parabol";
-                gps_button.setAttribute("position", "-1.1 -0.5 -0.9");
-                sky.setAttribute("src", current);
-                break;
-            case "box2" :
-                console.log("changed to location2");
-                current = "#lake";
-                gps_button.setAttribute("position", "-1.2 -0.5 -0.9");
-                sky.setAttribute("src", current);
-                break;
-             case "box3" :
-                console.log("changed to location2");
-                current = "#TQB";
-                gps_button.setAttribute("position", "-1 -0.5 -0.9");
-                sky.setAttribute("src", current);
-                break;
-            default:
-                console.log("Unknown location");
-        }
-    });
+document.getElementById("CH").addEventListener('click', (e) => {
+  window.location.replace("https://0.0.0.0:12345/indexchin.html");
 });
 
+document.getElementById("EN").addEventListener('click', (e) => {
+  window.location.replace("https://0.0.0.0:12345/indexen.html");
+});
 
+document.getElementById("VIET").addEventListener('click', (e) => {
+  window.location.replace("https://0.0.0.0:12345/indexviet.html");
+});
+}
 
+close_menub.addEventListener("triggerdown",(e)=>{
+console.log("clicked close");
+language.setAttribute("position", "5 2.5 -1000");
+close_menub.setAttribute("visible", "false");
+})
+  
 const guider = document.getElementById("guider");
 var container1 = document.querySelector(".text");
 //SPEED IS THE DESIRED DELAY, ALL ARE IN MILLISECONDS
@@ -941,24 +833,24 @@ var textLines = {
       { speed: speeds.fast, string: "No worries, i will help you!" },
       { speed: speeds.pause, string: "", pause: true },
       { speed: speeds.fast, string: "Please take a look at the" },
-      { speed: speeds.normal, string: "yellow arrows behind your back! ", classes: ["blue"] },
+      { speed: speeds.fast, string: "yellow arrows behind your back! ", classes: ["blue"] },
       { speed: speeds.fast, string: "You can click on it to move onto diffrent locations. " },
    ],
    dialogue3: [
-      { speed: speeds.normal, string: "Each location has an",},
+      { speed: speeds.fast, string: "Each location has an",},
       { speed: speeds.fast, string: "information button.",  },
       { speed: speeds.fast, string: "Gaze on it with your controller for about 2s" },
-      { speed: speeds.normal, string: "it will display information-related to the location in text, or  voice" },
+      { speed: speeds.fast, string: "it will display information-related to the location in text, or  voice" },
    ],
    dialogue4: [
-      { speed: speeds.normal, string: "",},
+      { speed: speeds.fast, string: "",},
       { speed: speeds.fast, string: "if you have something that has yet to be clear,",},
-      { speed: speeds.normal, string: "you can turn to our chatbot."},
+      { speed: speeds.fast, string: "you can turn to our chatbot."},
       { speed: speeds.fast, string: "(only available in 2D)",classes: ["blue"]},
    ],
    dialogue5: [
       { speed: speeds.fast, string: "That's the end of the tutorial",},
-      { speed: speeds.normal, string: "Prepare to embark on our wonderful tour!"},
+      { speed: speeds.fast, string: "Prepare to embark on our wonderful tour!"},
       { speed: speeds.fast, string: "Have a nice trip",classes: ["blue"]},
    ],
 };
@@ -1034,9 +926,9 @@ function continueDialogue() {
 
 startDialogue();
 
-
   </script>
   </body>
 </html>
 
 
+<!--each time clicked the dialogues is moved onto the next index -->
