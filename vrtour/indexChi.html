@@ -1,0 +1,932 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/three@0.131.3/examples/js/loaders/TDSLoader.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src ="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src ="https://unpkg.com/aframe-extras@6.1.0/dist/aframe-extras.min.js" ></script>
+
+    <script src="./index.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+  
+    <link rel="stylesheet" href="./WEBVR/style.css"> 
+    <script src="./WEBVR/script.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+
+    <title> HUST CAMPUS TOUR </title>
+<style>
+
+.text span {
+   opacity: 0;
+}
+.text span.revealed {
+   opacity: 1;
+}
+.text span.green {
+   color: #27ae60;
+}
+.text span.red {
+   color: #ff0000;
+}
+
+.hidden {
+            display: none;
+        }
+
+.text {
+   font-size: 6vw;
+   word-spacing: 0.2em;
+   margin: 0 auto;
+   background: #fff;
+   padding: 1em;
+   position:relative;
+   line-height: 1.2em;
+}
+.corner {
+   position:absolute;
+   width: 10vw;
+   right:2vw;
+   bottom:0;
+   transform: translateY(80%);
+}
+
+
+    #page1{
+      font-family: 'Roboto', sans-serif;
+      text-shadow: 0px 0px 10px #00d2ff;
+      color: #fff;
+      font-size: 35px;
+      margin: 0;
+      height: 70vh;
+        justify-content: center;
+        align-items: center;
+          }
+
+    h1{
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+    .dark{
+      background-color: rgba(0,0,0,0.2);
+      border-radius:50px;  
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      padding: 40px;
+    }
+    .text1{
+      width: 1024px;
+      height: 768px;
+      overflow: hidden;
+    }
+    .menu{
+      width:  768px;
+      height: 768px;
+      text-align: center;
+    }
+    .menu ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    a.button{
+      display: inline-block;
+      width: 100%;
+      border-radius: 20px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+    a.button:hover{
+      background-color: #fff;
+      color: #888;
+    }
+    a.button:active{
+      background-color: #fff;
+      color: #888;
+      box-shadow: 0px 0px 50px #00d2ff;
+    }
+
+    .code{
+      white-space: pre;
+      font-size: 0.7em;
+      background-color: #000;
+      margin-bottom: 30px;
+    }
+    .next,.prev{
+      position: absolute;
+      bottom: 0px;
+      right: 30px;
+      display: inline-block;
+      width: auto !important;
+      padding: 20px 30px !important;
+    }
+    .prev{
+      right: auto;
+      left: 30px;
+    }
+    #page1{
+      position: relative;
+      height: auto;
+    }
+    #page2, #page3, #page4{
+      display: none;
+      position: relative;
+      height: 100%;
+    }
+    .slide{
+      height:100%;
+    }
+    .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-option {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-option:hover {
+    background-color: #0056b3;
+}
+</style>
+
+
+  </head>
+  <body>
+     
+    <a-scene id="loading" stats loading-screen="dotsColor: #B8001F; backgroundColor: #FCFAEE"; XRMode: xr>
+
+     
+      <a-assets>
+
+        <img id="parabol" src="assets/Location/parabol.JPG" />
+        <img id="intersect1" src="assets/Location/intersect1.JPG" />
+        <img id="intersect2" src="assets/Location/intersect2.JPG" />
+
+        <img id="lake" src="assets/Location/lake.JPG" />
+        <img id="TQB" src="assets/Location/TQB.JPG" />
+        <img id="insideTQB" src="assets/Location/insideTQB.JPG" />
+
+        <img id="arrow" src="assets/yajirusi.png" />
+        <img id="close" src="assets/delete1.png" />
+        <img id="info" src="assets/info.png" />
+        <img id="next" src="assets/next.png" />
+
+        <img id="BKMAP" src="assets/MAP.jpg"/>
+         <img id="gps" src="assets/GPS.png" />
+
+        <img id="buff" src="#arrow"> <!--probably some random bugs-->
+     
+        <audio id="audio1" src="assets/Audio/parabol vie.mp3" preload="auto"></audio>
+        <audio id="audio2" src="assets/Audio/tien vie.mp3" preload="auto"></audio>
+        <audio id="audio3" src="assets/Audio/tqb vie.mp3" preload="auto"></audio>
+      
+        <a-entity id="buffer"></a-entity>
+       
+       
+        
+      <a-asset-item id ="guide" src ="assets/robot_playground/robot_playground.glb"></a-asset-item>
+      </a-assets>
+
+
+      <a-entity id = "guider" gltf-model="#guide" scale =" 0.2 0.2 0.2" position ="0 1.2 -1 " animation-mixer="clip: Experiment" class="collidable" move-controller></a-entity>
+      <a-image id="close_menu" src="#close" class="collidable" position="0 2.5 -3"
+      rotation="0 0 0" scale=" 0.2 0.2 0.2" opacity="1" visible= "false" move-controller></a-image>
+<a-image id="infob" src="#info" class="collidable" position="0.1 1.5 -2" 
+      rotation="0 0 0" scale="3 3 3" opacity="0.8" visible= "true" move-controller></a-image>
+  
+  <a-image id="closeb" src="#close" class="collidable" position="-0.8 1.4 -1"
+      rotation="0 0 0" scale=" 0.1 0.1 0" opacity="0.8" visible= "false" move-controller></a-image>
+  
+  <!-- <a-image id ="closeb2" src ="#close" class= "colldable" position ="-0.4 1.3 -1" ></a-image> -->
+  <a-image id="right" src="#arrow" class="collidable" position="0 10000 11 " rotation="0 0 50"
+      scale="3 0.5 1" opacity="0.8" visible=false move-controller></a-image>
+
+  <a-image id="left" src="#arrow" class="collidable" position="11 110000 11" rotation="0 0 0"
+      scale="3 0.5 0" opacity="0.8" visible=false move-controller></a-image>
+
+      <a-image id="forward" src="#arrow"class="collidable" position="0 1 2.5" rotation="0 0 0"
+      scale=" 3 0.5 0" opacity="0.8" visible=true move-controller></a-image>
+
+  <a-image id="back" src="#arrow" class="collidable" position="0 40000 4" rotation="0 0 0"
+      scale="3 0.5 0" opacity="0.8" visible="false" move-controller></a-image>
+  <!-- Sky element -->
+
+  <a-sky id="sky" src="#parabol" rotation="0 -90 0"></a-sky>
+  <a-gui-flex-container 
+  id = "container"
+  flex-direction="column" justify-content="flexStart" align-items="normal" component-padding="0.1" opacity="0.2" width="4.0" height="4.0" 
+  panel-color="#000002" 
+  panel-rounded="0.2"
+  rotation="0 -45 0"
+  position="1 1 -111111111"
+
+>
+<a-gui-label
+background-color = #adf0f7;
+font-color = #f6feff;
+id ="Language"
+class ="collidable"
+width="2.5" height="0.75"
+value="Language"
+font-size="0.3"
+line-height="0.8"
+letter-spacing="0"
+margin="-0.5 3 3 3"
+panel-rounded="0.3"
+opacity = "0.7"
+gui-interactable
+
+move-controller
+
+>
+</a-gui-label>
+
+<a-gui-label
+background-color = #adf0f7;
+font-color = #f6feff;
+id ="Audio"
+class ="collidable"
+width="2.5" height="0.75"
+value="Play audio"
+font-size="0.3"
+line-height="0.8"
+letter-spacing="0"
+panel-rounded="0.2"
+opacity = "0.7"
+gui-interactable
+play
+margin="1 100 100 100"
+>
+</a-gui-label>
+
+</a-gui-flex-container>
+<!----------------------------------------------------------------------------------------------------------------------------->
+<a-gui-flex-container 
+panel-color="#000002" 
+panel-rounded="0.2"
+id = "language_menu"
+opacity = "0.3"
+flex-direction="column" justify-content="flexStart" align-items="normal" component-padding="0.1" opacity="0.2" width="3.75" height="3.75" 
+position="5 2.5 -1000"
+move-controller
+>
+
+<a-gui-label
+ id ="CH"
+ background-color = #adf0f7;
+ font-color = #f6feff;
+ class ="collidable"
+	width="2.5" height="0.75"
+	value="Chinese"
+	font-size="0.3"
+	line-height="0.8"
+	letter-spacing="0"
+	margin="-0.5 1 1 1"
+  panel-rounded="0.2"
+  opacity = "0.7"
+
+  gui-interactable
+
+>
+</a-gui-label>
+
+<a-gui-label
+id ="VIET"
+background-color = #adf0f7;
+font-color = #f6feff;
+class ="collidable"
+ width="2.5" height="0.75"
+ value="Vietnamese"
+ font-size="0.3"
+ line-height="0.8"
+ letter-spacing="0"
+ margin="-0.5 1 1 1"
+ panel-rounded="0.2"
+ opacity = "0.7"
+
+ gui-interactable
+>
+</a-gui-label>
+
+<a-gui-label
+id ="EN"
+value="English"
+background-color = #adf0f7;
+font-color = #f6feff;
+class ="collidable"
+ width="2.5" height="0.75"
+ value="Chinese"
+ font-size="0.3"
+ line-height="0.8"
+ letter-spacing="0"
+ margin="-0.5 1 1 1"
+ panel-rounded="0.2"
+ opacity = "0.7"
+
+ gui-interactable
+
+>
+</a-gui-label>
+
+</a-gui-flex-container>
+<!--------------------------------------------------------------------------------------------------->
+
+
+<!---------------------------------------------------------------------------------------------------->
+   <a-entity id="cameraRig">
+   
+    <a-camera id="camera">
+      <a-entity cursor="rayOrigin: mouse"></a-entity> <!--ray casting from the mouse to the entity -->
+      <a-entity id="right controller" laser-controls="hand:right" raycaster="objects:.collidable"
+          right-controller></a-entity>
+      <a-entity id="left controller" laser-controls="hand:left" raycaster="objects:.collidable"
+       left-controller></a-entity>
+
+    </a-camera>
+      </a-entity>
+      <!---------------------------------------------------------------------------------->
+      <a-entity id="textdemo" class="text1"  htmlembed="ppu:256" position="0 2.5 -6" visible = "true" class="collidable" move-controller>
+        <div class="text">
+          <svg class="corner" viewBox="0 0 65 62" fill="none" xmlns="">
+              <path d="M35 3.5L65 6.5V62L0 0L35 3.5Z" fill="white"/>
+          </svg>
+      </div>
+      </a-entity>
+
+
+<!------------------------------------------------------------------------------------------------------------------>
+
+<a-entity id="text1" class="screen dark text1" sound="src:#audio1;autoplay:false;refDistance:3" htmlembed="ppu:200" position="0 2.5 -5" visible = "false">
+        
+  <div id="page1" class="tab1">
+    <h3> 抛物线门 </h3>
+
+    <p> 抛物线门是河内科技大学的第一座标志性大门。抛物线门建于1986年，标志着学校早期建设和扩建设施的发展。大门采用基于抛物线形状的独特设计，象征着科学技术的精确性和创造力，代表了学校的学术精神和志向远大的志向。抛物线门位于 Giai Phong 街的入口处，是几代理工学院学生的骄傲。
+
+      </p>
+
+   </div>
+</a-entity> 
+<a-entity id="pic1" class="screen menu dark" htmlembed="ppu:256" position="-4 2.3 -3" rotation="0 45 0" visible ="false">
+  <div id="page1" class="tab1">
+   <img src ="WEBVR/Image/parabol.JPG" width="790px" height="790px"></img>
+   
+   </div>
+</a-entity> 
+
+<a-entity id="text2"class="screen dark text1" sound="src:#audio2;autoplay:false;refDistance:3" htmlembed="ppu:256" position="-1 2.5 -5" visible = "false">
+  <div id="page1" class="tab1">
+    <h1> 何田 </h1>
+    <p>
+      天湖是一个与学校建校初期的发展和景观扩张相关的项目。修建该湖的目的既是为了改善环境，也是为了为校园社区创造一个休闲空间。这里也是举办许多课外活动、拍摄纪念照片的地方，成为一代又一代理工学子熟悉的标志
+    </p>
+   </div>
+</a-entity> 
+
+<a-entity id="pic2" class="screen menu dark" htmlembed="ppu:256" position="-5 2.5 -5" rotation="0 45 0" visible ="false">
+  <div id="page1" class="tab1">
+   <img src ="WEBVR/Image/hotien.jpg" width="auto" height="auto"></img>
+   </div>
+</a-entity>
+
+<a-entity id="text3"class="screen dark text1" sound="src:#audio3;autoplay:false;refDistance:3" htmlembed="ppu:256" position="0 2.5 4" visible = "false" rotation ="0 180 0">
+  <div id="page1" class="tab1">
+    <h1>Tạ Quang Bửu 图书馆</h1>
+    <p>Ta Quang Buu图书馆建于2006年，是东南亚最大的图书馆之一，是河内科技大学的现代学习资源中心。图书馆面积超过37000平方米，以其独特的建筑风格脱颖而出，集自习区、小组会议室和深度研究空间于一体。图书馆的特色是丰富的文献系统，拥有超过50万册图书、现代数字文献以及通过应用程序借阅图书和电子搜索等服务。这里不仅是提供知识的场所，也是学校文化、创造力和创新的象征，吸引着来自各地的学生和研究人员。
+    </p>
+   
+   </div>
+</a-entity> 
+
+
+<a-entity id="pic3" class="screen menu dark" htmlembed="ppu:256" position= "3.6 2.5 4" rotation="0 225 0" visible ="false">
+  <div id="page1" class="tab1">
+   <img src ="WEBVR/Image/thu-vien-1.jpg" width="auto" height="auto"></img>
+   </div>
+</a-entity>
+</a-scene>
+</div> 
+
+  
+
+
+      <!---------------------------------------------------------------------------------------------->
+ 
+      <!-------------------------------------------------------------------------------------------------------------------------------------->
+     
+
+
+      <div class="custom-navbar" style="overflow: hidden; flex:1 1 0%; margin-right: 0px"> 
+        <div class="nav-item menu-toggle">
+        <span class="material-symbols-outlined" style="color: #b41d24 ;"> Menu </span>
+         <span> Menu </span>
+        </div>
+        
+        <div class="nav-items" id="nav-items">
+          <div class="nav-item">
+            <span class="material-symbols-outlined" id="openModalBtn1" style="background-color: transparent; color: red"> language </span> 
+              <span> 语言 </span>
+          </div>
+          
+          <div class="nav-item">
+            <span class="material-symbols-outlined" id="openModalBtn2" style="background-color: transparent; color: red">info</span> 
+            <span> 信息 </span>
+          </div>
+      
+          <div class="nav-item">
+            <span class="material-symbols-outlined" id="openModalBtn3" style="background-color: transparent;color: red">photo_library</span>
+            <span> 照片库 </span>
+          </div>
+        </div>
+      </div>
+      
+      <div id="myInfor2" class="modal">
+        <div class="modal-content2">  
+        <span class="inforclose-btn2"> &times; </span>
+        <div class="header">
+            <img src="WEBVR/Image/Logo.png" alt="Logo Hust" class="logo">
+      
+            <div class="header-text">
+              <h2> ĐẠI HỌC BÁCH KHOA HÀ NỘI </h2>
+              <p> HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY</p>
+            </div>
+        </div>
+      
+        <div>
+          <h3 style="margin-top: 10px; margin-bottom: 10px;"> 1. 总体介绍 </h3>
+          <p style="margin-top: 5px; margin-bottom: 10px;"> 河内科技大学（英文名Hanoi University of Science and Technology，简称HUST）成立于1956年。这是我国第一所以培养北方社会主义工业工程师为使命的技术大学。以及解放南方的斗争。</p> 
+          <p> 河内科技大学是一所多学科、多领域的科技培训和研究中心；培训与科研紧密结合，打造高素质人力资源，培养科技人才；定位于发展成为与地区乃至世界知名大学齐名的研究型大学。</p> 
+          <h3 style="margin-top: 10px; margin-bottom: 10px;"> 2. 地区 </h3>
+          <div class="container">
+            <img src="WEBVR/Image/Img8.webp" alt="Bản đồ Bách Khoa">
+            <div class="caption">
+              河内科技大学校门多达4个，街道2条，周边道路5条。 
+              学校教学、科研和会议总面积达26.2公顷， 
+              内城区最大的学校。许多学生必须在自己的学校查找谷歌地图。
+            </div>
+        </div> 
+        <div class="container">
+          <img src="WEBVR/Image/Img9.webp" alt="Cổng Parabol">
+          <div class="caption">
+            在这4座大门中，Giai Phong街的抛物线大门是一个象征，也是理工学院学生在这所最负盛名的现代化学校学习时的骄傲。
+          </div>
+      </div> 
+      <div class="container">
+        <img src="WEBVR/Image/Img10.webp" alt="Thư viện Tạ Quang Bửu">
+        <div class="caption">
+          Ta Quang Buu图书馆是河内科技大学建校50周年纪念项目，建设总投资超过2000亿越南盾。这是越南大学图书馆系统中最大的图书馆之一，包括一栋10层建筑，面积37,000平方米。
+      </div> 
+      </div>
+      
+      <div class="container">
+        <img src="WEBVR/Image/Img1.webp" alt="Hồ Tiền">
+        <div class="caption">
+          Bach Khoa 也是内城区少有的校园内拥有大湖的大学之一。河田是学生在紧张的课程结束后休息和娱乐的理想场所.
+      </div> 
+      </div>
+      
+      
+        <div class="footer">
+          <img src="WEBVR/Image/logo-hust-02.png" alt="Logo Hust" class="footer-logo">
+          <div class="footer_nav">
+             <a href="https://hust.edu.vn/" target="_blank"> Website </a>
+             <a href="https://www.facebook.com/dhbkhanoi/?fref=ts" target="_blank"> Facebook </a>
+             <a href="https://www.youtube.com/channel/UCl17km6Ou3av5LClGz_FWIw/featured" target="_blank"> Youtube </a>
+             <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fhust_dhbkhanoi%2F&is_from_rle" target="_blank"> Instagram </a>
+        
+             
+          </div>
+            <p>
+                  版权属于: Đại học Bách khoa Hà Nội<br>
+                  地址: Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội, Việt Nam<br>
+                  热线: 024 3869 4242
+            </p>
+        </div>
+        
+        
+        </div>
+      </div>
+      </div>
+      
+      
+      <div id="myInfor3" class="modal">
+        <div class="modal-content">
+          <span class="inforclose-btn3"> &times; </span>
+          <h2 class="header" style="text-align: center;"> 照片库   </h2>
+      
+          <div class="image-gallery">
+            <!-- Main Image -->
+            <div class="main-image">
+              <div class="image-container">
+                <img id="mainImage" src="WEBVR/Image/IMG.png" alt="Main Image" onclick="openLightbox()">
+              </div>
+              <p id="imageCaption">河内科技大学</p>
+            </div>
+            
+            <!-- Thumbnail List -->
+            <div class="thumbnail-list">
+              <img src="WEBVR/Image/Img9.webp" alt="Thumbnail 1" 
+                   data-caption="抛物线门" onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img2.jpg" alt="Thumbnail 2" 
+                   data-caption="2024年博士、硕士学位授予仪式 " onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img3.jpg" alt="Thumbnail 3" 
+                   data-caption="庆祝 Bach Khoa 成立 69 周年" onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img4.jpg" alt="Thumbnail 4" 
+                   data-caption="2024年理工学院联盟体育节" onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img5.jpg" alt="Thumbnail 5" 
+                   data-caption="欢迎69班" onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img6.webp" alt="Thumbnail 6" 
+                   data-caption="C2馆" onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img7.webp" alt="Thumbnail 7" 
+                   data-caption="D3-5号楼" onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img8.webp" alt="Thumbnail 8" 
+                   data-caption="Bách Khoa 地图" onclick="changeImage(this)">
+              <img src="WEBVR/Image/Img10.webp" alt="Thumbnail 9" 
+                   data-caption="Tạ Quang Bửu 图书馆" onclick="changeImage(this)">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImage" src="" alt="Lightbox Image">
+      </div>
+      
+      
+      <div id="myInfor1" class="modal">
+      <div class="language-items" id="language-items">
+        <span class="inforclose-btn1" > &times; </span>
+        <div class="language-item">
+          <button onclick="location.href='index.html' ">Vietnamese</button>
+        </div>
+        <div class="language-item">
+          <button onclick="location.href='indexEng.html' ">English</button>
+        </div>
+        <div class="language-item">
+          <button onclick="location.href='indexChi.html'">Chinese</button>
+        </div>
+      </div>
+      </div>
+            
+      <button class="chatbot-toggler">
+        <span class="material-symbols-rounded"> mode_comment </span>
+        <span class="material-symbols-outlined"> close </span>
+      </button>
+      
+      <div class="chatbot">
+        <header>
+          <h2>Chatbot</h2>
+          <span class="close-btn material-symbols-outlined"> close </span>
+        </header>
+        <ul class="chatbox">
+          <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>你好 👋<br>今天我能为您提供什么帮助？</p>
+          </li>
+        </ul>
+        <div class="chat-input">
+          <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+          <span class="material-symbols-outlined">send </span>
+        </div>
+      </div> 
+
+
+       
+     
+   
+    <script>
+     
+
+      let current = "#parabol";
+
+    let map_right = new Map([
+  ["#intersect2","#lake"], 
+  ["#TQB", "#insideTQB"],
+  ["#lake", "No_data"],
+  ["#parabol", "No_data"],
+  ["#insideTQB", "No_data"],
+  ["#intersect1", "No_data"]
+]);
+
+let map_left = new Map([
+  ["#lake", "#intersect2"], 
+  ["#insideTQB", "#TQB"],
+  ["#intersect2", "No_data"],
+  ["#parabol", "No_data"],
+  ["#TQB", "No_data"],
+  ["#intersect1", "No_data"]
+]);
+
+let map_forward = new Map([
+  ["#parabol", "#intersect1"], 
+  ["#intersect1","#intersect2"],
+  ["#intersect2", "#TQB"],
+  ["#lake", "No_data"],
+  ["#insideTQB", "No_data"],
+  ["#TQB", "#intersect2"]
+]);
+
+let map_back = new Map([
+  ["#parabol", "No_data"], 
+  ["#intersect1", "#parabol"],
+  ["#intersect2", "#intersect1"],
+  ["#lake", "No_data"],
+  ["#insideTQB", "#TQB"],
+  ["#TQB", "#intersect2"],
+]);
+
+
+      const arrow_right = document.getElementById("right");
+     
+      const arrow_left = document.getElementById("left");
+      const arrow_forward = document.getElementById("forward");
+      const arrow_back = document.getElementById("back");
+
+      arrow_right.addEventListener("raycaster-intersected", (event) => {
+          arrow_right.setAttribute("opacity", 1);
+          arrow_left.setAttribute("opacity", 0.8);
+          arrow_forward.setAttribute("opacity", 0.8);
+          arrow_back.setAttribute("opacity", 0.8);
+      })
+      arrow_right.addEventListener("raycaster-intersected-cleared", (event) => {
+          arrow_right.setAttribute("opacity", 0.8);
+      })
+      arrow_back.addEventListener("raycaster-intersected-cleared", (event) => {
+          arrow_back.setAttribute("opacity", 0.8);
+      })
+      arrow_back.addEventListener("raycaster-intersected", (event) => {
+          arrow_back.setAttribute("opacity", 1);
+          arrow_right.setAttribute("opacity", 0.8);
+          arrow_left.setAttribute("opacity", 0.8);
+          arrow_forward.setAttribute("opacity", 0.8);
+
+
+      })
+      arrow_left.addEventListener("raycaster-intersected", (event) => {
+          arrow_left.setAttribute("opacity", 1);
+          arrow_back.setAttribute("opacity", 0.8);
+          arrow_right.setAttribute("opacity", 0.8);
+          arrow_forward.setAttribute("opacity", 0.8);
+      })
+      arrow_left.addEventListener("raycaster-intersected-cleared", (event) => {
+          arrow_left.setAttribute("opacity", 0.8);
+      })
+
+      arrow_forward.addEventListener("raycaster-intersected", (event) => {
+          arrow_right.setAttribute("opacity", 0.8);
+          arrow_left.setAttribute("opacity", 0.8);
+          arrow_forward.setAttribute("opacity", 1);
+          arrow_back.setAttribute("opacity", 0.8);
+      })
+      arrow_forward.addEventListener("raycaster-intersected-cleared", (event) => {
+          arrow_forward.setAttribute("opacity", 0.8);
+
+      })
+      const info_icon = document.getElementById("infob");
+      info_icon.addEventListener("raycaster-intersected", (event) => {
+          console.log("Raycaster intersected with info_button");
+          info_icon.setAttribute("opacity", 1);
+          info_icon.setAttribute("scale", "0.13 0.13 0");
+          document.querySelector('#infob').emit('trigger');
+
+
+      })
+      info_icon.addEventListener("raycaster-intersected-cleared", (event) => {
+          info_icon.setAttribute("opacity", "0.8");
+      })
+
+
+      const close_icon = document.getElementById("closeb");
+      close_icon.addEventListener("raycaster-intersected", (event)=>{
+          console.log("Raycaster intersected with close_button");
+          close_icon.setAttribute("opacity", 1);
+          close_icon.setAttribute("scale", "0.13 0.13 0");
+      })
+
+      close_icon.addEventListener("raycaster-intersected-cleared", (event) => {
+          close_icon.setAttribute("opacity", "0.8");
+      })
+
+      const label2 = document.getElementById("Audio"); // Note the typo in ID ("lable2")
+      const label3 = document.getElementById("Map");
+      const label1 = document.getElementById("Language");
+      const language = document.getElementById("language_menu");
+      const close_menub = document.getElementById("close_menu");
+
+  label1.addEventListener('click', selectedLanguage);
+
+  function selectedLanguage(event) {
+  console.log("Language label clicked");
+
+  close_menub.setAttribute("position", "1 3.5 -3");
+  close_menub.setAttribute("visible", "true");
+  language.setAttribute("position", "0 1.5 -1");
+
+  document.getElementById("CH").addEventListener('click', (e) => {
+    window.location.replace("indexChi.html");
+  });
+
+  document.getElementById("EN").addEventListener('click', (e) => {
+    window.location.replace("indexEng.html");
+  });
+
+  document.getElementById("VIET").addEventListener('click', (e) => {
+    window.location.replace("index.html");
+  });
+}
+
+close_menub.addEventListener("click",(e)=>{
+  console.log("clicked close");
+  language.setAttribute("position", "5 2.5 -1000");
+  close_menub.setAttribute("visible", "false");
+})
+<!---------------------------------------------------->
+label1.addEventListener('triggerdown', selectedLanguage);
+
+function selectedLanguage(event) {
+console.log("Language label clicked");
+switch (current) {
+         case "#parabol":
+         close_menub.setAttribute("position", "1 3.5 -3");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 1.5 -3");
+        break;
+        case "#lake":
+        close_menub.setAttribute("position", "1 3.5 -3");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 1.5 -4");        
+        break;
+        case "#TQB":
+        close_menub.setAttribute("position", "1 3.5 2.9");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 2.6 3");  
+        language.setAttribute("rotation", "0 180 0");          
+        break;
+    
+                   }
+
+  document.getElementById("CH").addEventListener('click', (e) => {
+    window.location.replace("indexChi.html");
+  });
+
+  document.getElementById("EN").addEventListener('click', (e) => {
+    window.location.replace("indexEng.html");
+  });
+
+  document.getElementById("VIET").addEventListener('click', (e) => {
+    window.location.replace("index.html");
+  });
+}
+
+close_menub.addEventListener("triggerdown",(e)=>{
+console.log("clicked close");
+language.setAttribute("position", "5 2.5 -1000");
+close_menub.setAttribute("visible", "false");
+})
+  
+const guider = document.getElementById("guider");
+var container1 = document.querySelector(".text");
+//SPEED IS THE DESIRED DELAY, ALL ARE IN MILLISECONDS
+var speeds = {
+   pause: 500, //Higher number = longer delay
+   slow: 120,
+   normal: 90,
+   fast: 40,
+   superFast: 10
+};
+//ARRAYS OF SENTECES IN A DIALOGUE ( CAN MAKE MULTIPLE VALUES )
+var textLines = {
+   dialogue1: [
+      { speed: speeds.fast, string: "哦，你好！" },
+      { speed: speeds.pause, string: "", pause: true },
+      { speed: speeds.fast, string: "我是 HUSTbot！", classes: ["blue"] },
+      { speed: speeds.fast, string: "您的虚拟导游。", classes: ["blue"] },
+      { speed: speeds.fast, string: "这是您第一次参加这次旅行吗 " },
+   ],
+   dialogue2: [
+      { speed: speeds.fast, string: "不用担心，我会帮助你的！" },
+      { speed: speeds.fast, string: "请看一下" },
+      { speed: speeds.fast, string: "背后有黄色箭头！ ", classes: ["blue"] },
+      { speed: speeds.fast, string: "您可以单击它移动到不同的位置。 " },
+   ],
+   dialogue3: [
+      { speed: speeds.fast, string: "每个位置都有一个",},
+      { speed: speeds.fast, string: "信息按钮。",  },
+      { speed: speeds.fast, string: "用你的控制器点击它" },
+      { speed: speeds.fast, string: "它将以文本或语音形式显示与位置相关的信息" },
+   ],
+   dialogue4: [
+      { speed: speeds.fast, string: "",},
+      { speed: speeds.fast, string: "如果你还有什么不清楚的地方，",},
+      { speed: speeds.fast, string: "您可以转向我们的聊天机器人。"},
+      { speed: speeds.fast, string: "（仅适用于 2D）",classes: ["blue"]},
+   ],
+   dialogue5: [
+      { speed: speeds.fast, string: "教程到此结束",},
+      { speed: speeds.fast, string: "准备好开始我们的精彩之旅吧！"},
+      { speed: speeds.fast, string: "旅行愉快！",classes: ["blue"]},
+   ],
+};
+var characters = [];
+var currentDialogueIndex = 0;
+var dialogues = Object.values(textLines);
+
+
+var container1 = document.querySelector(".text");
+
+function loadDialogue(dialogue) {
+    characters = [];
+    container1.innerHTML = ''; // Clear previous dialogue
+    dialogue.forEach((line, index) => {
+        if (index < dialogue.length - 1) {
+            line.string += " "; // Add a space between lines
+        }
+
+        line.string.split("").forEach((character) => {
+            var span = document.createElement("span");
+            span.textContent = character;
+            container1.appendChild(span);
+            characters.push({
+                span: span,
+                isSpace: character === " " && !line.pause,
+                delayAfter: line.speed,
+                classes: line.classes || []
+            });
+        });
+    });
+}
+
+function revealOneCharacter(list) {
+    if (list.length === 0) {
+        continueDialogue();
+        return;
+    }
+    var next = list.splice(0, 1)[0];
+    next.span.classList.add("revealed");
+    next.classes.forEach((c) => {
+        next.span.classList.add(c);
+    });
+    var delay = next.isSpace && !next.pause ? 0 : next.delayAfter;
+    setTimeout(function () {
+        revealOneCharacter(list);
+    }, delay);
+}
+
+function startDialogue() {
+    loadDialogue(dialogues[currentDialogueIndex]);
+    setTimeout(() => {
+        revealOneCharacter(characters);
+    }, 1000);
+}
+
+function continueDialogue() {
+    if (currentDialogueIndex < dialogues.length - 1) {
+        currentDialogueIndex++;
+        startDialogue();
+    } else if (currentDialogueIndex == dialogues.length - 1) {
+        console.log("end of the dialogue");
+        container1.classList.add("hidden");
+        console.log("container1 should be hidden now");
+        guider.setAttribute("visible", "false");
+    }
+    if (currentDialogueIndex == 1 || currentDialogueIndex == 2) {
+        sky.setAttribute("opacity", "0.8");
+    } else {
+        sky.setAttribute("opacity", "1");
+    }
+
+}
+
+startDialogue();
+
+  </script>
+  </body>
+</html>
+
+
+<!--each time clicked the dialogues is moved onto the next index -->

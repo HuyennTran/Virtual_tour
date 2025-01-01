@@ -455,7 +455,7 @@ transition: transform 0.3s ease-in-out; /* Hiệu ứng phóng to khi hover */
 .chatbot-toggler {
   position: fixed;
   bottom: 30px;
-  right: 35px;
+  left: 35px;
   outline: none;
   border: none;
   height: 50px;
