@@ -1,0 +1,11 @@
+--2024-12-30 15:55:06--  https://fonts.googleapis.com/css?family=Roboto
+Resolving fonts.googleapis.com (fonts.googleapis.com)... 172.253.122.95, 2404:6800:4005:81b::200a
+Connecting to fonts.googleapis.com (fonts.googleapis.com)|172.253.122.95|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/css]
+Saving to: ‘css?family=Roboto’
+
+css?family=Roboto                                       [<=>                                                                                                              ]       0  --.-KB/s               css?family=Roboto                                       [ <=>                                                                                                             ]     178  --.-KB/s    in 0s      
+
+2024-12-30 15:55:08 (49,3 MB/s) - ‘css?family=Roboto’ saved [178]
+

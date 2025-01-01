@@ -1,0 +1,11 @@
+Model Information:
+* title:	VOLVO V60 FBX 2021
+* source:	https://sketchfab.com/3d-models/volvo-v60-fbx-2021-39f29176cf3b4f70832f32ba800f860b
+* author:	jan vancik (https://sketchfab.com/janvancik)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "VOLVO V60 FBX 2021" (https://sketchfab.com/3d-models/volvo-v60-fbx-2021-39f29176cf3b4f70832f32ba800f860b) by jan vancik (https://sketchfab.com/janvancik) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

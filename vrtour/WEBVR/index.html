@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Hust's VR tour </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css">
+    <script src="https://unpkg.com/pannellum/build/pannellum.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    
+   <link rel="stylesheet" href="style.css"> 
+   <script src="script.js" defer></script>
+   <script src="script2.js" defer></script>
+    
+    
+</head>
+
+<body>
+   <div id="panorama"></div>
+    <div class="modal1" id="infoModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Thông tin địa điểm</h2>
+            <p>Đây là một điểm nổi bật trong ảnh 360°.</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/pannellum/build/pannellum.js"></script>
+    <script>
+        pannellum.viewer('panorama', {
+            type: "equirectangular",
+            panorama: "https://pannellum.org/images/alma.jpg", 
+            autoLoad: true,
+            compass: true,
+            hotSpots: [
+                {
+                    pitch: 10, 
+                    yaw: 120, 
+                    type: "custom",
+                    cssClass: "hotspot-btn", 
+                    createTooltipFunc: hotspotClick,
+                    createTooltipArgs: { modalId: "infoModal" }
+                }
+            ]
+        });
+
+        function hotspotClick(hotSpotDiv, args) {
+  hotSpotDiv.addEventListener("click", function () {
+      const modal = document.getElementById(args.modalId);
+      modal.style.display = "block"; 
+  });
+}
+
+function closeModal() {
+  const modal = document.getElementById('infoModal');
+  modal.style.display = 'none'; 
+}
+    </script> 
+
+<!-- <a-scene stats loading-screen="dotsColor: gray; backgroundColor: lightgray">
+
+  <a-sky id="sky" color = "pink" rotation="0 90 0"></a-sky>
+</a-scene>  -->
+
+<div class="custom-navbar" style="overflow: hidden; flex:1 1 0%; margin-right: 0px"> 
+  <div class="nav-item menu-toggle">
+    <article class="fas fa-times" style="color: blue;"></article>
+    <span> Menu </span>
+  </div>
+  
+  <div class="nav-items" id="nav-items">
+    <div class="nav-item">
+      <button class="fas fa-globe" id="openModalBtn1"></button>
+      <span> Ngôn ngữ </span>
+    </div>
+    
+    <div class="nav-item">
+      <button class="fas fa-info-circle" id="openModalBtn2"></button> 
+      <span> Thông tin </span>
+    </div>
+
+    <div class="nav-item">
+      <button class="fas fa-image" id="openModalBtn3"> </button>
+      <span> Thư viện ảnh </span>
+    </div>
+  </div>
+</div>
+
+<div id="myInfor2" class="modal">
+  <div class="modal-content">  
+  <span class="inforclose-btn2"> &times; </span>
+  <div class="header">
+      <img src="/Image/Logo.png" alt="Logo Hust" class="logo">
+
+      <div class="header-text">
+        <h2> ĐẠI HỌC BÁCH KHOA HÀ NỘI </h2>
+        <p> HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY</p>
+      </div>
+  </div>
+
+  <div>
+    <h3> I. Giới thiệu chung </h3>
+    <p> Đại học Bách khoa Hà Nội (tên tiếng Anh Hanoi University of Science and Technology – viết tắt HUST) được thành lập năm 1956. Đây là trường đại học kỹ thuật đầu tiên của nước ta có nhiệm vụ đào tạo kỹ sư công nghiệp cho công cuộc xây dựng CNXH ở miền Bắc và đấu tranh giải phóng miền Nam.</p> 
+    <p>Đại học Bách khoa Hà Nội là trung tâm đào tạo, nghiên cứu khoa học và công nghệ đa ngành, đa lĩnh vực; kết hợp chặt chẽ giữa đào tạo với nghiên cứu khoa học nhằm tạo nguồn nhân lực chất lượng cao và bồi dưỡng nhân tài khoa học, công nghệ; định hướng phát triển thành đại học nghiên cứu ngang tầm với các đại học có uy tín trong khu vực và trên thế giới.</p> 
+</div>
+  <div class="footer">
+    <img src="/Image/logo-hust-02.png" alt="Logo Hust" class="footer-logo">
+    <div class="footer_nav">
+       <a href="https://hust.edu.vn/" target="_blank"> Website </a>
+       <a href="https://www.facebook.com/dhbkhanoi/?fref=ts" target="_blank"> Facebook </a>
+       <a href="https://www.youtube.com/channel/UCl17km6Ou3av5LClGz_FWIw/featured" target="_blank"> Youtube </a>
+       <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fhust_dhbkhanoi%2F&is_from_rle" target="_blank"> Instagram </a>
+
+       
+    </div>
+      <p>
+            Bản quyền thuộc về Đại học Bách khoa Hà Nội<br>
+            Địa chỉ: Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội<br>
+            Điện thoại: 024 3869 4242
+      </p>
+  </div>
+  
+  
+  </div>
+</div>
+ 
+
+
+<div id="myInfor3" class="modal">
+<div class="modal-content">
+  <span class="inforclose-btn3"> &times; </span>
+  <h2 style="position:fixed; font-size: 20px; text-align:center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; "> Thư Viện Hình Ảnh </h2>
+
+  <div class="image-gallery">
+    <!-- Showing image -->
+    <div class="main-image">
+        <img id="mainImage" src="/Image/IMG.png" alt="Main Image">
+        <p id="imageCaption"> Bách Khoa Hà Nội </p>
+    </div>
+    
+    <!-- otherimage -->
+    <div class="thumbnail-list">
+        <img src="/Image/Img9.webp" alt="Thumbnail 1" 
+             data-caption="Cổng Parabol" onclick="changeImage(this)">
+        <img src="/Image/Img2.jpg" alt="Thumbnail 2" 
+             data-caption="Lễ Trao Bằng Tiến sĩ, Thạc sĩ Năm 2024" onclick="changeImage(this)">
+        <img src="/Image/Img3.jpg" alt="Thumbnail 3" 
+             data-caption="Kỷ niệm 69 năm thành lập Bách Khoa " onclick="changeImage(this)">
+        <img src="/Image/Img4.jpg" alt="Thumbnail 4" 
+             data-caption="Hội thao Công Đoàn Bách Khoa Năm 2024" onclick="changeImage(this)">
+        <img src="/Image/Img5.jpg" alt="Thumbnail 5" 
+             data-caption="HUST- Chào Tân K69" onclick="changeImage(this)">
+        <img src="/Image/Img6.webp" alt="Thumbnail 6" 
+             data-caption="Hội trường C2" onclick="changeImage(this)">
+        <img src="/Image/Img7.webp" alt="Thumbnail 7" 
+             data-caption="Tòa nhà D3-5" onclick="changeImage(this)">
+        <img src="/Image/Img8.webp" alt="Thumbnail 8" 
+             data-caption="Bản đồ Bách Khoa" onclick="changeImage(this)">
+        <img src="/Image/Img10.webp" alt="Thumbnail 9" 
+             data-caption="Thư Viện Tạ Quang Bửu" onclick="changeImage(this)">
+      
+  </div>
+</div>  
+</div>
+</div>
+
+<div id="myInfor1" class="modal">
+<div class="language-items" id="language-items">
+  <span class="inforclose-btn1" > &times; </span>
+  <div class="language-item">
+    <button onclick="location.href='http://0.0.0.0:8000/demo_viet.html'">Vietnamese</button>
+  </div>
+  <div class="language-item">
+    <button onclick="location.href='http://0.0.0.0:8000/demo_eng.html'">English</button>
+  </div>
+  <div class="language-item">
+    <button onclick="location.href='http://0.0.0.0:8000/demo_chin.html'">Chinese</button>
+  </div>
+</div>
+</div>
+      
+ <button class="chatbot-toggler">
+  <span class="material-symbols-rounded">mode_comment</span>
+  <span class="material-symbols-outlined">close</span>
+</button>
+<div class="chatbot">
+  <header>
+    <h2>Chatbot</h2>
+    <span class="close-btn material-symbols-outlined">close</span>
+  </header>
+  <ul class="chatbox">
+    <li class="chat incoming">
+      <span class="material-symbols-outlined">smart_toy</span>
+      <p>Hi there 👋<br>How can I help you today?</p>
+    </li>
+  </ul>
+  <div class="chat-input">
+    <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+    <span id="send-btn" class="material-symbols-rounded">send</span>
+  </div>
+</div> 
+
+</body>
+</html>

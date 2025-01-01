@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+	  <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+	  <script src="https://unpkg.com/three@0.131.3/examples/js/loaders/TDSLoader.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js" ></script>
+    <script src="./index.js"></script>
+    <!-- <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> -->
+	  <!-- <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script> -->
+	  <!-- <script src="https://unpkg.com/three@0.131.3/examples/js/loaders/TDSLoader.js"></script> -->
+    <title> VR_Campus </title>
+  </head>
+
+  <body>
+    <a-scene stats loading-screen="dotsColor: gray; backgroundColor: lightgray">
+		  <a-assets>
+        <img id="hall_Nguyenlab" src="assets/hall/hall_Nguyenlab.JPG"></img>
+        <img id="Nguyenlab_1" src="assets/Nguyen_lab/Nguyen_lab_1.JPG"></img>
+        <img id="hall_Tsunodalab" src="assets/hall/hall_Tsunodalab.JPG"></img>
+        <img id="hall_Kawanolab" src="assets/hall/hall_Kawanolab.JPG"></img>
+        <img id="stair_3_west" src="assets/stairs/stair_3_west.JPG"></img>
+        <img id="stair_3.5_west" src="assets/stairs/stair_3.5_west.JPG"></img>
+        <img id="stair_1_east" src="assets/stairs/stair_1_east.JPG"></img>
+        <img id="stair_1.5_east" src="assets/stairs/stair_1.5_east.JPG"></img>
+        <img id="stair_2_east" src="assets/stairs/stair_2_east.JPG"></img>
+        <img id="stair_2.5_east" src="assets/stairs/stair_2.5_east.JPG"></img>
+        <img id="stair_3_east" src="assets/stairs/stair_3_east.JPG"></img>
+        <img id="stair_4_east" src="assets/stairs/stair_4_east.JPG"></img>
+        <img id="hall_entrance1" src="assets/hall/hall_entrance1.JPG"></img>
+        <img id="hall_entrance2" src="assets/hall/hall_entrance2.JPG"></img>
+        <img id="hall_soto1" src="assets/hall/hall_soto1.JPG"></img>
+        <img id="hall_soto2" src="assets/hall/hall_soto2.JPG"></img>
+        <img id="hall_soto3" src="assets/hall/hall_soto3.JPG"></img>
+        <img id="stair_ITmedia1" src="assets/stairs/stair_ITmedia1.JPG"></img>
+        <img id="stair_ITmedia2" src="assets/stairs/stair_ITmedia2.JPG"></img>
+        <img id="stair_ITmedia3" src="assets/stairs/stair_ITmedia3.JPG"></img>
+        <img id="stair_ITmedia4" src="assets/stairs/stair_ITmedia4.JPG"></img>
+        <img id="yajirusi" src="assets/yajirusi.png"></img>
+        <img id="hall_ITmedia" src="assets/hall/hall_ITmedia.JPG">
+        <!-- <video id="remote_video" style = "width: 3840; height: 1920;" autoplay  ></video> -->
+        <video id="remote_video" style = "width: 3840; height: 1920;" autoplay  ></video>
+        <img id="Not_video" src="assets/Not_video.png"></img>
+  
+      </a-assets>
+      
+      <a-entity cursor="rayOrigin: mouse"></a-entity>
+      <a-entity id = "ctlL" laser-controls="hand: left" raycaster="objects: .collidable; far: 0" left-controller></a-entity>
+      <a-entity id = "ctlR" laser-controls="hand: right" raycaster="objects: .collidable; far: 500" right-controller ></a-entity>
+
+      <a-videosphere id = "vs" src = "#remote_video" preload="none" opacity = "0" rotation="0 0 0"></a-videosphere>
+      <a-sky id = "sky" src="#hall_ITmedia" rotation="0 90 0"></a-sky>
+
+      <a-box id = "enter_room"  class = "collidable" color = "yellow" scale = "300 500 10" position = "0 -50 -300" rotation="0 0 0" visible = "false" opacity = "0"></a-box>     
+    
+      <a-image id = "idou1" src = "#yajirusi" class = "collidable" scale = "100 100 5" position = "-150 -100 10" rotation = "90 0 90" opacity = "0.8" visible = "false" move-controller></a-image>
+
+      <a-image id = "idou2" src = "#yajirusi" scale = "100 100 5" class = "collidable" position = "0 -100 -150" rotation = "90 0 180" opacity = "0.8" visible = "false" move-controller></a-image>
+
+      <a-image id = "idou3" src = "#yajirusi" scale = "100 100 5" class = "collidable" position = "150 -100 10" rotation = "90 0 -45" opacity = "0.8" visible = "true" move-controller></a-image>
+
+      <!-- <a-entity id = "idou3" geometry="primitive:box" position="0 1 -1" scale="0.1 0.0 0.1" src="#yajirusi" class="raycastable" opacity = "0.8"></a-entity> -->
+
+      <a-image id = "idou4" src = "#yajirusi" scale = "100 100 5" class = "collidable" position = "0 -100 150" rotation = "90 0 45" opacity = "0.8" visible = "false" move-controller></a-image>
+
+      <a-image id = "idou5" src = "#yajirusi" scale = "100 100 5" class = "collidable" position = "100 -100 70" rotation = "90 0 -60" opacity = "0.8" visible = "false" move-controller></a-image>
+
+      <a-text id = "text1" value = "No_data" scale = "100 100 50" position = "-150 -20 0"  rotation = "0 90 0" color = "white" visible = "false" align="center"></a-text>
+
+      <a-text id = "text2" value = "No_data" scale = "100 100 50" position = "-150 -20 0"  rotation = "0 90 0" color = "white" visible = "false" align="center"></a-text>
+
+      <a-text id = "text3" value = "No_data" scale = "100 100 50" position = "150 -20 0"  rotation = "0 -90 0" color = "white" visible = "false" align="center"></a-text>
+
+      <a-text id = "text4" value = "No_data" scale = "100 100 50" position = "0 -20 150"  rotation = "0 180 0" color = "white" visible = "false" align="center"></a-text>
+      <a-box id="start_button" class="collidable" position="-10 1 -15" rotation="0 0 0" color="#D4AC0D" depth=0.5 opacity = 0.8 visible = "false"></a-box>
+
+
+      <!--<a-text
+      id = "text2"
+      value="グエン研究室"
+      font="noto-sans-cjk-jp-msdf.json"
+      font-image="noto-sans-cjk-jp-msdf.png"
+      negat="false"
+      position="0 -20 -150"
+      scale="100 100 50"
+      >
+      </a-text>-->
+      <!--<a-entity id = "ctlL" laser-controls="hand: left" raycaster="objects: .collidable; far: 0" left-controller></a-entity>
+      <a-entity id = "ctlR" laser-controls="hand: right" raycaster="objects: .collidable; far: 1000" right-controller ></a-entity>-->
+
+      <!--<a-videosphere src = "#remote_video" rotation="0 0 0"></a-videosphere>-->
+      <!--<a-sky id = "sky" src="#Not_video" opacity = 0></a-sky>-->
+  
+      <!--<a-video src = "#local_video" position="0 5 -15" rotation = "0 0 0" width = "10" height = "10"></a-video>-->
+      <!--<a-videosphere src="#Not_video" rotation="0 0 0"></a-videosphere>-->
+      <a-gui-flex-container 
+      id = "container"
+    flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0.7" width="3.5" height="4.5" 
+    panel-color="#072B73" 
+    panel-rounded="0.2"
+	position="0 2.5 -6" rotation="0 0 0"
+>
+... gui items here...
+
+</a-gui-flex-container>
+
+    </a-scene>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    // Select the GUI container by ID
+    const gui = document.getElementById("container");
+
+    // Check if the GUI container is found
+    if (gui) {
+      console.log("GUI container found:", gui);
+    } else {
+      console.error("GUI container not found!");
+    }
+  });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "aframe-htmlembed-component": "^1.0.0",
+    "three": "^0.171.0"
+  }
+}
