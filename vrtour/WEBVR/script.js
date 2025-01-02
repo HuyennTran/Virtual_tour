@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Gemini API Configuration
   const GEMINI_API_KEY = "AIzaSyC3Th_BaGxIYvI86EvUN_dUtA7WiQk8kcc"; 
-  const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
+  const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
   
   
   const createChatLi = (message, className) => {
@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   // Function to fetch Gemini API Response
+  
   const getGeminiResponse = async (userMessage) => {
       try {
           const response = await fetch(GEMINI_API_URL + `?key=${GEMINI_API_KEY}`, {
