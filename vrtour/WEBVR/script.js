@@ -86,11 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const lightbox = document.getElementById('lightbox');
       const lightboxImage = document.getElementById('lightboxImage');
       
-      lightboxImage.src = mainImage.src; // Lấy ảnh từ ảnh chính
-      lightbox.style.display = 'flex'; // Hiển thị lightbox
+      lightboxImage.src = mainImage.src; 
+      lightbox.style.display = 'flex'; 
     }
-    
-    // Đóng lightbox khi nhấp vào nó
+
     function closeLightbox() {
       const lightbox = document.getElementById('lightbox');
       lightbox.style.display = 'none';
@@ -125,6 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
   const getGeminiResponse = async (userMessage) => {
       try {
+        if (userMessage.includes("đây là web gì") || userMessage.includes("What is website about?")) {
+            return "đây là một website  cho phép người dùng khám phá Đại học Bách Khoa, thông qua hình ảnh, video, hoặc công nghệ thực tế ảo (VR).";
+        }
           const response = await fetch(GEMINI_API_URL + `?key=${GEMINI_API_KEY}`, {
               method: 'POST',
               headers: {
@@ -167,12 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const handleChat = () => {
       userMessage = chatInput.value.trim();
       if(!userMessage) return;
-  
-      // Clear the input textarea and set its height to default
       chatInput.value = "";
       chatInput.style.height = `${inputInitHeight}px`;
-  
-      // Append the user's message to the chatbox
       chatbox.appendChild(createChatLi(userMessage, "outgoing"));
       chatbox.scrollTo(0, chatbox.scrollHeight);
   
@@ -189,14 +187,11 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
   chatInput.addEventListener("input", () => {
-      // Adjust the height of the input textarea based on its content
       chatInput.style.height = `${inputInitHeight}px`;
       chatInput.style.height = `${chatInput.scrollHeight}px`;
   });
   
   chatInput.addEventListener("keydown", (e) => {
-      // If Enter key is pressed without Shift key and the window
-      // width is greater than 800px, handle the chat
       if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
           e.preventDefault();
           handleChat();
