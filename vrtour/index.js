@@ -227,7 +227,7 @@ AFRAME.registerComponent('move-controller', {   //mouse-click controller
                     arrow_forward.setAttribute("position", "1.25 1.3 1.5");
                     arrow_right.setAttribute("rotation", "0 90 0");
                     arrow_back.setAttribute("rotation", "0 0 0");
-                    arrow_forward.setAttribute("rotation", "45 45 75");
+                    arrow_forward.setAttribute("rotation", "90 90 90");
 
                     info_icon.setAttribute("visible",false);
                 }
@@ -512,7 +512,7 @@ AFRAME.registerComponent('vr-controller', {   //mouse-click controller
                 arrow_right.setAttribute("rotation", "0 90 0");
                 arrow_back.setAttribute("rotation", "0 0 0");
          
-                arrow_forward.setAttribute("rotation", "0 0 0");
+                arrow_forward.setAttribute("rotation", "90 90 90");
 
                 info_icon.setAttribute("visible",false);
 
@@ -535,7 +535,7 @@ AFRAME.registerComponent('vr-controller', {   //mouse-click controller
               arrow_forward.setAttribute("position", "-7 1.2 0");
           
 
-              arrow_right.setAttribute("rotation", "45 45 45");
+              arrow_right.setAttribute("rotation", "-90 90 0");
               arrow_forward.setAttribute("rotation", "0 90 0");
 
               info_icon.setAttribute("visible",true);
