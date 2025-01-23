@@ -28,7 +28,7 @@ AFRAME.registerComponent('info-button', {
                     pic1.setAttribute("visible", 'true');
                     container.setAttribute("position", "5 2.5 -5");
                     container.setAttribute("rotation", "0 -45 0");
-                    close_icon.setAttribute("position", "-0.8 1. -1");
+                    close_icon.setAttribute("position", "-0.8 1.2 -1");
                     close_icon.setAttribute("visible", "true");
                     console.log('Text visibility set to true');
                     flag = 1;
