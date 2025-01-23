@@ -168,6 +168,7 @@ AFRAME.registerComponent('move-controller', {   //mouse-click controller
                  arrow_forward.setAttribute("position", "0 1 2.5");
 
                 info_icon.setAttribute("visible", "true");
+                info_icon.setAttribute("rotation", "0 0 0");
            
                 info_icon.setAttribute("position", "0.1 1.5 -2");
                 }
