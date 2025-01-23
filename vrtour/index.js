@@ -209,7 +209,7 @@ AFRAME.registerComponent('move-controller', {   //mouse-click controller
                     arrow_forward.setAttribute("position", "-0.5 1.2 1");
                     arrow_right.setAttribute("rotation", "");
                     arrow_back.setAttribute("rotation", "0 1 -1");
-                    arrow_forward.setAttribute("rotation", "45 0 0");
+                    arrow_forward.setAttribute("rotation", "0 0 0");
 
                     info_icon.setAttribute("visible",false);
                 }
