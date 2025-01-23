@@ -171,6 +171,152 @@
 .menu-option:hover {
     background-color: #0056b3;
 }
+<style>
+
+.text span {
+   opacity: 0;
+}
+.text span.revealed {
+   opacity: 1;
+}
+.text span.green {
+   color: #27ae60;
+}
+.text span.red {
+   color: #ff0000;
+}
+
+.hidden {
+            display: none;
+        }
+
+.text {
+   font-size: 6vw;
+   word-spacing: 0.2em;
+   margin: 0 auto;
+   background: #fff;
+   padding: 1em;
+   position:relative;
+   line-height: 1.2em;
+}
+.corner {
+   position:absolute;
+   width: 10vw;
+   right:2vw;
+   bottom:0;
+   transform: translateY(80%);
+}
+
+
+    #page1{
+      font-family: 'Roboto', sans-serif;
+      text-shadow: 0px 0px 10px #00d2ff;
+      color: #fff;
+      font-size: 35px;
+      margin: 0;
+      height: 70vh;
+        justify-content: center;
+        align-items: center;
+          }
+
+    h1{
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+    .dark{
+      background-color: rgba(0,0,0,0.2);
+      border-radius:50px;  
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      padding: 40px;
+    }
+    .text1{
+      width: 1024px;
+      height: 768px;
+      overflow: hidden;
+    }
+    .menu{
+      width:  768px;
+      height: 768px;
+      text-align: center;
+    }
+    .menu ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    a.button{
+      display: inline-block;
+      width: 100%;
+      border-radius: 20px;
+      background-color: #000;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+    a.button:hover{
+      background-color: #fff;
+      color: #888;
+    }
+    a.button:active{
+      background-color: #fff;
+      color: #888;
+      box-shadow: 0px 0px 50px #00d2ff;
+    }
+
+    .code{
+      white-space: pre;
+      font-size: 0.7em;
+      background-color: #000;
+      margin-bottom: 30px;
+    }
+    .next,.prev{
+      position: absolute;
+      bottom: 0px;
+      right: 30px;
+      display: inline-block;
+      width: auto !important;
+      padding: 20px 30px !important;
+    }
+    .prev{
+      right: auto;
+      left: 30px;
+    }
+    #page1{
+      position: relative;
+      height: auto;
+    }
+    #page2, #page3, #page4{
+      display: none;
+      position: relative;
+      height: 100%;
+    }
+    .slide{
+      height:100%;
+    }
+    .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-option {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-option:hover {
+    background-color: #0056b3;
+}
 </style>
 
 
@@ -192,6 +338,7 @@
 
         <img id="arrow" src="assets/yajirusi.png" />
         <img id="close" src="assets/delete1.png" />
+     
         <img id="info" src="assets/info.png" />
         <img id="next" src="assets/next.png" />
 
@@ -212,14 +359,15 @@
       </a-assets>
 
 
-      <a-entity id = "guider" gltf-model="#guide" scale =" 0.2 0.2 0.2" position ="0 1.2 -1 " animation-mixer="clip: Experiment" class="collidable" move-controller></a-entity>
+      <a-entity id = "guider" gltf-model="#guide" scale =" 0.2 0.2 0.2" position ="0 1.2 -1 " animation-mixer="clip: Staitc pose" class="collidable" move-controller></a-entity>
       <a-image id="close_menu" src="#close" class="collidable" position="0 2.5 -3"
-      rotation="0 0 0" scale=" 0.2 0.2 0.2" opacity="1" visible= "false" move-controller></a-image>
+      rotation="0 0 0" scale=" 0.2 0.2 0.2" opacity="1" visible= "false" ></a-image>
+      
 <a-image id="infob" src="#info" class="collidable" position="0.1 1.5 -2" 
-      rotation="0 0 0" scale="3 3 3" opacity="0.8" visible= "true" move-controller></a-image>
+      rotation="0 0 0" scale="3 3 3" opacity="0.8" visible= "true" info-button></a-image>
   
   <a-image id="closeb" src="#close" class="collidable" position="-0.8 1.4 -1"
-      rotation="0 0 0" scale=" 0.1 0.1 0" opacity="0.8" visible= "false" move-controller></a-image>
+      rotation="0 0 0" scale=" 0.1 0.1 0" opacity="0.2" visible= "false" close-button></a-image>
   
   <!-- <a-image id ="closeb2" src ="#close" class= "colldable" position ="-0.4 1.3 -1" ></a-image> -->
   <a-image id="right" src="#arrow" class="collidable" position="0 10000 11 " rotation="0 0 50"
@@ -228,8 +376,8 @@
   <a-image id="left" src="#arrow" class="collidable" position="11 110000 11" rotation="0 0 0"
       scale="3 0.5 0" opacity="0.8" visible=false move-controller></a-image>
 
-      <a-image id="forward" src="#arrow"class="collidable" position="0 1 2.5" rotation="0 0 0"
-      scale=" 3 0.5 0" opacity="0.8" visible=true move-controller></a-image>
+      <a-image id="forward" src="#arrow"class="collidable" position="0 1.3 2.5" rotation="0 0 0"
+      scale=" 3 1.3 0" opacity="0.8" visible=true move-controller></a-image>
 
   <a-image id="back" src="#arrow" class="collidable" position="0 40000 4" rotation="0 0 0"
       scale="3 0.5 0" opacity="0.8" visible="false" move-controller></a-image>
@@ -260,7 +408,6 @@ panel-rounded="0.3"
 opacity = "0.7"
 gui-interactable
 
-move-controller
 
 >
 </a-gui-label>
@@ -292,7 +439,7 @@ id = "language_menu"
 opacity = "0.3"
 flex-direction="column" justify-content="flexStart" align-items="normal" component-padding="0.1" opacity="0.2" width="3.75" height="3.75" 
 position="5 2.5 -1000"
-move-controller
+
 >
 
 <a-gui-label
@@ -357,16 +504,18 @@ class ="collidable"
 
 
 <!---------------------------------------------------------------------------------------------------->
-   <a-entity id="cameraRig">
+<a-entity id="right controller" laser-controls="hand:right" raycaster="objects:.collidable"
+right-controller></a-entity>
+<a-entity id="left controller" laser-controls="hand:left" raycaster="objects:.collidable"
+left-controller></a-entity>  
+<a-entity id="cameraRig">
    
     <a-camera id="camera">
       <a-entity cursor="rayOrigin: mouse"></a-entity> <!--ray casting from the mouse to the entity -->
-      <a-entity id="right controller" laser-controls="hand:right" raycaster="objects:.collidable"
-          right-controller></a-entity>
-      <a-entity id="left controller" laser-controls="hand:left" raycaster="objects:.collidable"
-       left-controller></a-entity>
 
     </a-camera>
+ 
+
       </a-entity>
       <!---------------------------------------------------------------------------------->
       <a-entity id="textdemo" class="text1"  htmlembed="ppu:256" position="0 2.5 -6" visible = "true" class="collidable" move-controller>
@@ -392,7 +541,7 @@ class ="collidable"
 </a-entity> 
 <a-entity id="pic1" class="screen menu dark" htmlembed="ppu:256" position="-4 2.3 -3" rotation="0 45 0" visible ="false">
   <div id="page1" class="tab1">
-   <img src ="WEBVR/Image/parabol.JPG" width="790px" height="790px"></img>
+   <img src ="WEBVR/Image/parabol.jpg" width="790px" height="790px"></img>
    
    </div>
 </a-entity> 
@@ -736,51 +885,27 @@ let map_back = new Map([
       const language = document.getElementById("language_menu");
       const close_menub = document.getElementById("close_menu");
 
-  label1.addEventListener('click', selectedLanguage);
+      label1.addEventListener('click', selectedLanguageClick);
 
-  function selectedLanguage(event) {
-  console.log("Language label clicked");
-
-  close_menub.setAttribute("position", "1 3.5 -3");
-  close_menub.setAttribute("visible", "true");
-  language.setAttribute("position", "0 1.5 -1");
-
-  document.getElementById("CH").addEventListener('click', (e) => {
-    window.location.replace("indexChi.html");
-  });
-
-  document.getElementById("EN").addEventListener('click', (e) => {
-    window.location.replace("indexEng.html");
-  });
-
-  document.getElementById("VIET").addEventListener('click', (e) => {
-    window.location.replace("index.html");
-  });
-}
-
-close_menub.addEventListener("click",(e)=>{
-  console.log("clicked close");
-  language.setAttribute("position", "5 2.5 -1000");
-  close_menub.setAttribute("visible", "false");
-})
-<!---------------------------------------------------->
-label1.addEventListener('triggerdown', selectedLanguage);
-
-function selectedLanguage(event) {
+function selectedLanguageClick(event) {
 console.log("Language label clicked");
 switch (current) {
          case "#parabol":
-         close_menub.setAttribute("position", "1 3.5 -3");
+        
+        language.setAttribute("rotation", " 0 -45 0");
+        close_menub.setAttribute("position", "1 3.5 -3");
         close_menub.setAttribute("visible", "true");
         language.setAttribute("position", "0 1.5 -3");
         break;
         case "#lake":
+   
+        language.setAttribute("rotation", " 0-45 0");
         close_menub.setAttribute("position", "1 3.5 -3");
         close_menub.setAttribute("visible", "true");
         language.setAttribute("position", "0 1.5 -4");        
         break;
         case "#TQB":
-        close_menub.setAttribute("position", "1 3.5 2.9");
+        close_menub.setAttribute("position", "1 4 2.9");
         close_menub.setAttribute("visible", "true");
         language.setAttribute("position", "0 2.6 3");  
         language.setAttribute("rotation", "0 180 0");          
@@ -801,6 +926,60 @@ document.getElementById("EN").addEventListener('click', (e) => {
 document.getElementById("VIET").addEventListener('click', (e) => {
   window.location.replace("index.html");
 });
+
+
+}
+
+close_menub.addEventListener("click",(e)=>{
+console.log("clicked close");
+language.setAttribute("position", "5 2.5 -1000");
+close_menub.setAttribute("visible", "false");
+})
+  
+<!---------------------------------------------------->
+label1.addEventListener('triggerdown', selectedLanguage);
+
+function selectedLanguage(event) {
+console.log("Language label clicked");
+switch (current) {
+         case "#parabol":
+        
+        language.setAttribute("rotation", " 0 -45 0");
+        close_menub.setAttribute("position", "1 3.5 -3");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 1.5 -3");
+        break;
+        case "#lake":
+   
+        language.setAttribute("rotation", " 0-45 0");
+        close_menub.setAttribute("position", "1 3.5 -3");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 1.5 -4");        
+        break;
+        case "#TQB":
+        close_menub.setAttribute("position", "1 4 2.9");
+        close_menub.setAttribute("visible", "true");
+        language.setAttribute("position", "0 2.6 3");  
+        language.setAttribute("rotation", "0 180 0");          
+        break;
+    
+                   }
+
+
+
+document.getElementById("CH").addEventListener('triggerdown', (e) => {
+  window.location.replace("https://10:42:0.1:12345/indexChi.html");
+});
+
+document.getElementById("EN").addEventListener('triggerdown', (e) => {
+  window.location.replace("https://10:42:0.1:12345/indexEng.html");
+});
+
+document.getElementById("VIET").addEventListener('triggerdown', (e) => {
+  window.location.replace("https://10:42:0.1:12345/index.html");
+});
+
+
 }
 
 close_menub.addEventListener("triggerdown",(e)=>{
@@ -922,6 +1101,8 @@ function continueDialogue() {
 }
 
 startDialogue();
+
+
 
   </script>
   </body>
