@@ -536,7 +536,7 @@ AFRAME.registerComponent('vr-controller', {   //mouse-click controller
               arrow_forward.setAttribute("position", "-7 1.2 0");
           
 
-              arrow_right.setAttribute("rotation", "-90 90 0");
+              arrow_right.setAttribute("rotation", "0 0 0");
               arrow_forward.setAttribute("rotation", "0 0 0");
 
               info_icon.setAttribute("visible",true);
