@@ -53,6 +53,9 @@
    position:relative;
    line-height: 1.2em;
 }
+.pink{
+  color: rgb(255, 0, 157)
+}
 .corner {
    position:absolute;
    width: 10vw;
@@ -171,7 +174,6 @@
 .menu-option:hover {
     background-color: #0056b3;
 }
-<style>
 
 .text span {
    opacity: 0;
@@ -309,7 +311,7 @@
     border: none;
     border-radius: 5px;
     background-color: #007BFF;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -318,12 +320,37 @@
     background-color: #0056b3;
 }
 </style>
-
+<style>
+  #custom-loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: #FCFAEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  #custom-loader img {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  #custom-loader p {
+    font-size: 20px;
+    color: #B8001F;
+  }
+</style>
 
   </head>
   <body>
      
-    <a-scene id="loading" stats loading-screen="dotsColor: #B8001F; backgroundColor: #FCFAEE"; XRMode: xr>
+    <div id="custom-loader">
+  <img src="assets/logo-bachkhoa.jpg" alt="Logo Đại học Bách Khoa">
+  <p id="loading-text">Loading...</p>
+</div>
+
+    <a-scene id="loading" stats="false" loading-screen="dotsColor: #B8001F; backgroundColor: #FCFAEE"; XRMode: xr>
 
      
       <a-assets>
@@ -395,7 +422,7 @@
 >
 <a-gui-label
 background-color = #adf0f7;
-font-color = #f6feff;
+font-color = #ff69b4;
 id ="Language"
 class ="collidable"
 width="2.5" height="0.75"
@@ -414,7 +441,7 @@ gui-interactable
 
 <a-gui-label
 background-color = #adf0f7;
-font-color = #f6feff;
+font-color = #ff69b4;
 id ="Audio"
 class ="collidable"
 width="2.5" height="0.75"
@@ -443,27 +470,9 @@ position="5 2.5 -1000"
 >
 
 <a-gui-label
- id ="CH"
- background-color = #adf0f7;
- font-color = #f6feff;
- class ="collidable"
-	width="2.5" height="0.75"
-	font-size="0.3"
-	line-height="0.8"
-	letter-spacing="0"
-	margin="-0.5 1 1 1"
-  panel-rounded="0.2"
-  opacity = "0.7"
-
-  gui-interactable
-
->
-</a-gui-label>
-
-<a-gui-label
 id ="VIET"
 background-color = #adf0f7;
-font-color = #f6feff;
+font-color = #ff69b4;
 class ="collidable"
  width="2.5" height="0.75"
  value="Vietnamese"
@@ -482,7 +491,7 @@ class ="collidable"
 id ="EN"
 value="English"
 background-color = #adf0f7;
-font-color = #f6feff;
+font-color = #ff69b4;
 class ="collidable"
  width="2.5" height="0.75"
  font-size="0.3"
@@ -586,23 +595,23 @@ left-controller></a-entity>
 
       <div class="custom-navbar" style="overflow: hidden; flex:1 1 0%; margin-right: 0px"> 
         <div class="nav-item menu-toggle">
-        <span class="material-symbols-outlined" style="color: #b41d24 ;"> Menu </span>
+        <span class="material-symbols-outlined" style="color: #52b41d ;"> Menu </span>
          <span> Menu </span>
         </div>
         
         <div class="nav-items" id="nav-items">
           <div class="nav-item">
-            <span class="material-symbols-outlined" id="openModalBtn1" style="background-color: transparent; color: red"> language </span> 
+            <span class="material-symbols-outlined" id="openModalBtn1" style="background-color: transparent; color: rgb(0, 255, 21)"> language </span> 
               <span> Language </span>
           </div>
           
           <div class="nav-item">
-            <span class="material-symbols-outlined" id="openModalBtn2" style="background-color: transparent; color: red">info</span> 
+            <span class="material-symbols-outlined" id="openModalBtn2" style="background-color: transparent; color: rgb(0, 255, 85)">info</span> 
             <span> Information </span>
           </div>
       
           <div class="nav-item">
-            <span class="material-symbols-outlined" id="openModalBtn3" style="background-color: transparent;color: red">photo_library</span>
+            <span class="material-symbols-outlined" id="openModalBtn3" style="background-color: transparent;color: rgb(0, 255, 51)">photo_library</span>
             <span> Photo Library </span>
           </div>
         </div>
@@ -962,11 +971,6 @@ switch (current) {
                    }
 
 
-
-document.getElementById("CH").addEventListener('triggerdown', (e) => {
-  window.location.replace("https://10:42:0.1:12345/indexChi.html");
-});
-
 document.getElementById("EN").addEventListener('triggerdown', (e) => {
   window.location.replace("https://10:42:0.1:12345/indexEng.html");
 });
@@ -997,35 +1001,35 @@ var speeds = {
 //ARRAYS OF SENTECES IN A DIALOGUE ( CAN MAKE MULTIPLE VALUES )
 var textLines = {
    dialogue1: [
-      { speed: speeds.fast, string: "Oh, hello!" },
+      { speed: speeds.fast, string: "Oh, hello!", classes: ["pink"]},
       { speed: speeds.pause, string: "", pause: true },
-      { speed: speeds.fast, string: "I'm HUSTbot!", classes: ["blue"] },
-      { speed: speeds.fast, string: "Your virtual tour guide.", classes: ["blue"] },
-      { speed: speeds.fast, string: "Is this your first time taking this tour? " },
+      { speed: speeds.fast, string: "I'm HUSTbot!", classes: ["pink"] },
+      { speed: speeds.fast, string: "Your virtual tour guide.", classes: ["pink"] },
+      { speed: speeds.fast, string: "Is this your first time taking this tour? ", classes: ["pink"] },
    ],
    dialogue2: [
-      { speed: speeds.fast, string: "No worries, i will help you!" },
+      { speed: speeds.fast, string: "No worries, i will help you!" , classes: ["pink"]},
       { speed: speeds.pause, string: "", pause: true },
-      { speed: speeds.fast, string: "Please take a look at the" },
-      { speed: speeds.fast, string: "yellow arrows behind your back! ", classes: ["blue"] },
-      { speed: speeds.fast, string: "You can click on it to move onto diffrent locations. " },
+      { speed: speeds.fast, string: "Please take a look at the", classes: ["pink"] },
+      { speed: speeds.fast, string: "yellow arrows behind your back! ", classes: ["pink"] },
+      { speed: speeds.fast, string: "You can click on it to move onto diffrent locations. ", classes: ["pink"] },
    ],
    dialogue3: [
-      { speed: speeds.fast, string: "Each location has an",},
-      { speed: speeds.fast, string: "information button.",  },
-      { speed: speeds.fast, string: "Click it with your controller, and then " },
-      { speed: speeds.fast, string: "it will display information-related to the location in text, or  voice" },
+      { speed: speeds.fast, string: "Each location has an",classes: ["pink"]},
+      { speed: speeds.fast, string: "information button.", classes: ["pink"] },
+      { speed: speeds.fast, string: "Click it with your controller, and then ", classes: ["pink"] },
+      { speed: speeds.fast, string: "it will display information-related to the location in text, or  voice", classes: ["pink"] },
    ],
    dialogue4: [
       { speed: speeds.fast, string: "",},
-      { speed: speeds.fast, string: "if you have something that has yet to be clear,",},
+      { speed: speeds.fast, string: "if you have something that has yet to be clear,",classes: ["pink"]},
       { speed: speeds.fast, string: "you can turn to our chatbot."},
-      { speed: speeds.fast, string: "(only available in 2D)",classes: ["blue"]},
+      { speed: speeds.fast, string: "(only available in 2D)",classes: ["pink"]},
    ],
    dialogue5: [
-      { speed: speeds.fast, string: "That's the end of the tutorial",},
-      { speed: speeds.fast, string: "Prepare to embark on our wonderful tour!"},
-      { speed: speeds.fast, string: "Have a nice trip",classes: ["blue"]},
+      { speed: speeds.fast, string: "That's the end of the tutorial",classes: ["pink"]},
+      { speed: speeds.fast, string: "Prepare to embark on our wonderful tour!", classes: ["pink"]},
+      { speed: speeds.fast, string: "Have a nice trip",classes: ["pink"]},
    ],
 };
 var characters = [];
@@ -1095,10 +1099,22 @@ function continueDialogue() {
 }
 
 startDialogue();
-
-
-
   </script>
+   </script>
+<script>
+  const loader = document.getElementById('custom-loader');
+  const loadingText = document.getElementById('loading-text');
+  const assets = document.querySelector('a-assets');
+
+  assets.addEventListener('progress', (event) => {
+    const percent = Math.floor(event.detail.loadedBytes / event.detail.totalBytes * 100);
+    loadingText.textContent = `Loading... ${percent}%`;
+  });
+
+  assets.addEventListener('loaded', () => {
+    loader.style.display = 'none';
+  });
+</script>
   </body>
 </html>
 

@@ -296,6 +296,9 @@
     .slide{
       height:100%;
     }
+    .pink{
+      color: rgb(205, 50, 120)
+    }
     .menu {
     display: flex;
     flex-direction: column;
@@ -981,37 +984,37 @@ const guider = document.getElementById("guider");
 var container1 = document.querySelector(".text");
 //SPEED IS THE DESIRED DELAY, ALL ARE IN MILLISECONDS
 var speeds = {
-   pause: 500, //Higher number = longer delay
+   pause: 300, //Higher number = longer delay
    slow: 120,
    normal: 90,
-   fast: 40,
+   fast: 20,
    superFast: 10
 };
 //ARRAYS OF SENTECES IN A DIALOGUE ( CAN MAKE MULTIPLE VALUES )
 var textLines = {
    dialogue1: [
-      { speed: speeds.fast, string: "🤖 Chào bạn!" },
+      { speed: speeds.fast, string: "Hello!", classes: ["pink"]  },
       { speed: speeds.pause, string: "", pause: true },
-      { speed: speeds.fast, string: "Mình là HUSTbot!", classes: ["blue"] },
-      { speed: speeds.fast, string: "Hướng dẫn viên ảo của bạn.", classes: ["blue"] },
-      { speed: speeds.fast, string: "Đây là lần đầu tiên bạn tham gia chuyến tham quan này phải không?" },
+      { speed: speeds.fast, string: "Mình là HUSTbot!", classes: ["pink"] },
+      { speed: speeds.fast, string: "Hướng dẫn viên ảo của bạn.", classes: ["pink"] },
+      { speed: speeds.fast, string: "Đây là lần đầu tiên bạn tham gia chuyến tham quan này phải không?", classes: ["pink"]  },
    ],
    dialogue2: [
-      { speed: speeds.fast, string: "Đừng lo lắng, tôi sẽ giúp bạn" },
+      { speed: speeds.fast, string: "Mình tới đây để giúp bạn", classes: ["pink"]  },
       { speed: speeds.pause, string: "", pause: true },
-      { speed: speeds.fast, string: "Bạn có thể nhấp vào các mũi tên để di chuyển đến các vị trí khác nhau. " },
+      { speed: speeds.fast, string: "Bạn có thể nhấp vào các mũi tên để di chuyển đến các vị trí khác nhau. ", classes: ["pink"]  },
    ],
    dialogue3: [
-      { speed: speeds.fast, string: "Mỗi vị trí có một nút thông tin i.",},
-      { speed: speeds.fast, string: "Click vào đó! nó sẽ hiển thị thông tin liên quan đến vị trí trong văn bản, hình ảnh hoặc giọng nói" },
+      { speed: speeds.fast, string: "Mỗi vị trí có một nút thông tin biểu tượng i.",classes: ["pink"] },
+      { speed: speeds.fast, string: "Click vào đó! nó sẽ hiển thị thông tin liên quan đến vị trí trong văn bản, hình ảnh hoặc giọng nói", classes: ["pink"]  },
    ],
    dialogue4: [
-      { speed: speeds.fast, string: "nếu bạn có điều gì đó vẫn chưa rõ ràng,",},
-      { speed: speeds.fast, string: "bạn có thể chuyển sang chatbot của chúng tôi."},
+      { speed: speeds.fast, string: "nếu bạn có điều gì đó vẫn chưa rõ ràng,",classes: ["pink"] },
+      { speed: speeds.fast, string: "bạn có thể chuyển sang chatbot của chúng tôi.", classes: ["pink"] },
    ],
    dialogue5: [
-      { speed: speeds.fast, string: "Hãy bắt đầu chuyến tham quan của chúng ta!"},
-      { speed: speeds.fast, string: "Hi vọng bạn sẽ có khoảng thời gian tuyệt vời",classes: ["blue"]},
+      { speed: speeds.fast, string: "Hãy bắt đầu chuyến tham quan của chúng ta!", classes: ["pink"] },
+      { speed: speeds.fast, string: "Hi vọng bạn sẽ có khoảng thời gian tuyệt vời",classes: ["pink"]},
    ],
 };
 var characters = [];
@@ -1089,7 +1092,7 @@ startDialogue();
 
   assets.addEventListener('progress', (event) => {
     const percent = Math.floor(event.detail.loadedBytes / event.detail.totalBytes * 100);
-    loadingText.textContent = `Đang tải... ${percent}%`;
+    loadingText.textContent = `Loading... ${percent}%`;
   });
 
   assets.addEventListener('loaded', () => {
