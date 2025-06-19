@@ -328,15 +328,15 @@
      
       <a-assets>
 
-        <img id="parabol" src="assets/Location/parabol.JPG" />
-        <img id="intersect1" src="assets/Location/intersect1.JPG" />
-        <img id="intersect2" src="assets/Location/intersect2.JPG" />
+        <img id="parabol" src="assets\Location\parabol2.jpg" />
+        <img id="intersect1" src="assets\Location\inter1.jpg" />
+        <img id="intersect2" src="assets\Location\inter.jpg" />
 
-        <img id="lake" src="assets/Location/lake.JPG" />
-        <img id="TQB" src="assets/Location/TQB.JPG" />
-        <img id="insideTQB" src="assets/Location/insideTQB.JPG" />
+        <img id="lake" src="assets\Location\back.jpg" />
+        <img id="TQB" src="assets\Location\TQBuu.jpg" />
+        <img id="insideTQB" src="assets\Location\in_lib.jpg" />
 
-        <img id="arrow" src="assets/yajirusi.png" />
+        <img id="arrow" src="assets\833408.png" />
         <img id="close" src="assets/delete1.png" />
      
         <img id="info" src="assets/info.png" />
@@ -355,11 +355,11 @@
        
        
         
-      <a-asset-item id ="guide" src ="assets/robot_playground/robot_playground.glb"></a-asset-item>
+      <a-asset-item id ="guide" src ="assets\robot_playground\Rolie the robot.glb"></a-asset-item>
       </a-assets>
 
 
-      <a-entity id = "guider" gltf-model="#guide" scale =" 0.2 0.2 0.2" position ="0 1.2 -1 " animation-mixer="clip: Staitc pose" class="collidable" move-controller></a-entity>
+      <a-entity id = "guider" gltf-model="#guide" scale =" 0.075 0.075 0.075" position ="0 1.2 -1 " animation-mixer="clip: Staitc pose" class="collidable" move-controller></a-entity>
       <a-image id="close_menu" src="#close" class="collidable" position="0 2.5 -3"
       rotation="0 0 0" scale=" 0.2 0.2 0.2" opacity="1" visible= "false" ></a-image>
       
@@ -371,16 +371,16 @@
   
   <!-- <a-image id ="closeb2" src ="#close" class= "colldable" position ="-0.4 1.3 -1" ></a-image> -->
   <a-image id="right" src="#arrow" class="collidable" position="0 10000 11 " rotation="0 0 50"
-      scale="3 0.5 1" opacity="0.8" visible=false move-controller></a-image>
+      scale="0.75 0.13 0.25" opacity="0.8" visible=false move-controller></a-image>
 
   <a-image id="left" src="#arrow" class="collidable" position="11 110000 11" rotation="0 0 0"
-      scale="3 0.5 0" opacity="0.8" visible=false move-controller></a-image>
+      scale="0.75 0.125 0" opacity="0.8" visible=false move-controller></a-image>
 
       <a-image id="forward" src="#arrow"class="collidable" position="0 1.3 2.5" rotation="90 0 0"
-      scale=" 3 1.3 0" opacity="0.8" visible=true move-controller></a-image>
+      scale=" 1.5 0.6 0" opacity="0.8" visible=true move-controller></a-image>
 
   <a-image id="back" src="#arrow" class="collidable" position="0 40000 4" rotation="0 0 0"
-      scale="3 0.5 0" opacity="0.8" visible="false" move-controller></a-image>
+      scale="1.5 0.25 0" opacity="0.8" visible="false" move-controller></a-image>
   <!-- Sky element -->
 
   <a-sky id="sky" src="#parabol" rotation="0 -90 0"></a-sky>
@@ -448,7 +448,6 @@ position="5 2.5 -1000"
  font-color = #f6feff;
  class ="collidable"
 	width="2.5" height="0.75"
-	value="Chinese"
 	font-size="0.3"
 	line-height="0.8"
 	letter-spacing="0"
@@ -486,7 +485,6 @@ background-color = #adf0f7;
 font-color = #f6feff;
 class ="collidable"
  width="2.5" height="0.75"
- value="Chinese"
  font-size="0.3"
  line-height="0.8"
  letter-spacing="0"
@@ -733,9 +731,6 @@ left-controller></a-entity>
         </div>
         <div class="language-item">
           <button onclick="location.href='indexEng.html' ">English</button>
-        </div>
-        <div class="language-item">
-          <button onclick="location.href='indexChi.html'">Chinese</button>
         </div>
       </div>
       </div>

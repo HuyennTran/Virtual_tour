@@ -12,6 +12,9 @@
     <script src="https://unpkg.com/three@0.131.3/examples/js/loaders/TDSLoader.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
     <script src ="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+     <style>
+    </style>
+
     <script src ="https://unpkg.com/aframe-extras@6.1.0/dist/aframe-extras.min.js" ></script>
 
     <script src="./index.js"></script>
@@ -24,7 +27,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 
-    <title> HUST CAMPUS TOUR </title>
+    <title> HUST TOUR </title>
 <style>
 
 .text span {
@@ -322,21 +325,22 @@
 
   </head>
   <body>
+    
      
     <a-scene id="loading" stats loading-screen="dotsColor: #B8001F; backgroundColor: #FCFAEE"; XRMode: xr>
 
      
       <a-assets>
 
-        <img id="parabol" src="assets/Location/parabol.JPG" />
-        <img id="intersect1" src="assets/Location/intersect1.JPG" />
-        <img id="intersect2" src="assets/Location/intersect2.JPG" />
+        <img id="parabol" src="assets\Location\parabol2.jpg" />
+        <img id="intersect1" src="assets\Location\inter1.jpg" />
+        <img id="intersect2" src="assets\Location\inter.jpg" />
 
-        <img id="lake" src="assets/Location/lake.JPG" />
-        <img id="TQB" src="assets/Location/TQB.JPG" />
-        <img id="insideTQB" src="assets/Location/insideTQB.JPG" />
+        <img id="lake" src="assets\Location\back.jpg" />
+        <img id="TQB" src="assets\Location\TQBuu.jpg" />
+        <img id="insideTQB" src="assets\Location\in_lib.jpg" />
 
-        <img id="arrow" src="assets/yajirusi.png" />
+        <img id="arrow" src="assets\833408.png" />
         <img id="close" src="assets/delete1.png" />
      
         <img id="info" src="assets/info.png" />
@@ -347,19 +351,19 @@
 
         <img id="buff" src="#arrow"> <!--probably some random bugs-->
      
-        <audio id="audio1" src="assets/Audio/parabol vie.mp3" preload="auto"></audio>
-        <audio id="audio2" src="assets/Audio/tien vie.mp3" preload="auto"></audio>
-        <audio id="audio3" src="assets/Audio/tqb vie.mp3" preload="auto"></audio>
+        <audio id="audio1" src="assets\Audio\parabol_VN.mp3" preload="auto"></audio>
+        <audio id="audio2" src="assets\Audio\Lake_vn.mp3" preload="auto"></audio>
+        <audio id="audio3" src="assets\Audio\Library_vn.mp3" preload="auto"></audio>
       
         <a-entity id="buffer"></a-entity>
        
        
         
-      <a-asset-item id ="guide" src ="assets/robot_playground/robot_playground.glb"></a-asset-item>
+      <a-asset-item id ="guide" src ="assets\robot_playground\Rolie the robot.glb"></a-asset-item>
       </a-assets>
 
 
-      <a-entity id = "guider" gltf-model="#guide" scale =" 0.2 0.2 0.2" position ="0 1.2 -1 " animation-mixer="clip: Staitc pose" class="collidable" move-controller></a-entity>
+      <a-entity id = "guider" gltf-model="#guide" scale =" 0.1 0.1 0.1" position ="0 1.1 -1 " animation-mixer="clip: Staitc pose" class="collidable" move-controller></a-entity>
       <a-image id="close_menu" src="#close" class="collidable" position="0 2.5 -3"
       rotation="0 0 0" scale=" 0.2 0.2 0.2" opacity="1" visible= "false" ></a-image>
       
@@ -371,16 +375,16 @@
   
   <!-- <a-image id ="closeb2" src ="#close" class= "colldable" position ="-0.4 1.3 -1" ></a-image> -->
   <a-image id="right" src="#arrow" class="collidable" position="0 10000 11 " rotation="0 0 50"
-      scale="3 0.5 1" opacity="0.8" visible=false move-controller></a-image>
+      scale="0.75 0.13 0.25" opacity="0.8" visible=false move-controller></a-image>
 
   <a-image id="left" src="#arrow" class="collidable" position="11 110000 11" rotation="0 0 0"
-      scale="3 0.5 0" opacity="0.8" visible=false move-controller></a-image>
+      scale="0.75 0.13 0" opacity="0.8" visible=false move-controller></a-image>
 
       <a-image id="forward" src="#arrow"class="collidable" position="0 1.3 2.5" rotation="90 0 0"
-      scale=" 3 1.3 0" opacity="0.8" visible=true move-controller></a-image>
+      scale=" 0.75 0.35 0" opacity="0.8" visible=true move-controller></a-image>
 
   <a-image id="back" src="#arrow" class="collidable" position="0 40000 4" rotation="0 0 0"
-      scale="3 0.5 0" opacity="0.8" visible="false" move-controller></a-image>
+      scale="0.75 0.13 0" opacity="0.8" visible="false" move-controller></a-image>
   <!-- Sky element -->
 
   <a-sky id="sky" src="#parabol" rotation="0 -90 0"></a-sky>
@@ -442,21 +446,7 @@ position="5 2.5 -1000"
 
 >
 
-<a-gui-label
- id ="CH"
- background-color = #adf0f7;
- font-color = #f6feff;
- class ="collidable"
-	width="2.5" height="0.75"
-	value="Chinese"
-	font-size="0.3"
-	line-height="0.8"
-	letter-spacing="0"
-	margin="-0.5 1 1 1"
-  panel-rounded="0.2"
-  opacity = "0.7"
 
-  gui-interactable
 
 >
 </a-gui-label>
@@ -486,7 +476,6 @@ background-color = #adf0f7;
 font-color = #f6feff;
 class ="collidable"
  width="2.5" height="0.75"
- value="Chinese"
  font-size="0.3"
  line-height="0.8"
  letter-spacing="0"
@@ -580,16 +569,9 @@ left-controller></a-entity>
 
   
 
-
-      <!---------------------------------------------------------------------------------------------->
- 
-      <!-------------------------------------------------------------------------------------------------------------------------------------->
-     
-
-
       <div class="custom-navbar" style="overflow: hidden; flex:1 1 0%; margin-right: 0px"> 
         <div class="nav-item menu-toggle">
-        <span class="material-symbols-outlined" style="color: #b41d24 ;"> Menu </span>
+        <span class="material-symbols-outlined" style="color: #FFA500 ;"> Menu </span>
          <span> Menu </span>
         </div>
         
@@ -734,9 +716,7 @@ left-controller></a-entity>
         <div class="language-item">
           <button onclick="location.href='indexEng.html' ">English</button>
         </div>
-        <div class="language-item">
-          <button onclick="location.href='indexChi.html'">Chinese</button>
-        </div>
+
       </div>
       </div>
             
@@ -762,8 +742,6 @@ left-controller></a-entity>
         </div>
       </div> 
 
-
-       
      
    
     <script>
@@ -1003,31 +981,26 @@ var textLines = {
    dialogue1: [
       { speed: speeds.fast, string: "Chào bạn!" },
       { speed: speeds.pause, string: "", pause: true },
-      { speed: speeds.fast, string: "Tôi là HUSTbot!", classes: ["blue"] },
+      { speed: speeds.fast, string: "Mình là HUSTbot!", classes: ["blue"] },
       { speed: speeds.fast, string: "Hướng dẫn viên ảo của bạn.", classes: ["blue"] },
       { speed: speeds.fast, string: "Đây là lần đầu tiên bạn tham gia chuyến tham quan này phải không?" },
    ],
    dialogue2: [
       { speed: speeds.fast, string: "Đừng lo lắng, tôi sẽ giúp bạn" },
       { speed: speeds.pause, string: "", pause: true },
-      { speed: speeds.fast, string: "Xin hãy nhìn vào" },
-      { speed: speeds.fast, string: "mũi tên màu vàng sau lưng bạn! ", classes: ["blue"] },
-      { speed: speeds.fast, string: "Bạn có thể nhấp vào nó để di chuyển đến các vị trí khác nhau. " },
+      { speed: speeds.fast, string: "Bạn có thể nhấp vào các mũi tên để di chuyển đến các vị trí khác nhau. " },
    ],
    dialogue3: [
-      { speed: speeds.fast, string: "Mỗi vị trí có một nút thông tin.",},
-      { speed: speeds.fast, string: "Nhấn vào nó và sau đó" },
-      { speed: speeds.fast, string: "nó sẽ hiển thị thông tin liên quan đến vị trí trong văn bản, hình ảnh hoặc giọng nói" },
+      { speed: speeds.fast, string: "Mỗi vị trí có một nút thông tin i.",},
+      { speed: speeds.fast, string: "Click vào đó! nó sẽ hiển thị thông tin liên quan đến vị trí trong văn bản, hình ảnh hoặc giọng nói" },
    ],
    dialogue4: [
       { speed: speeds.fast, string: "nếu bạn có điều gì đó vẫn chưa rõ ràng,",},
       { speed: speeds.fast, string: "bạn có thể chuyển sang chatbot của chúng tôi."},
-      { speed: speeds.fast, string: "chỉ có ở 2D",classes: ["blue"]},
    ],
    dialogue5: [
-      { speed: speeds.fast, string: "Đó là phần cuối của hướng dẫn",},
-      { speed: speeds.fast, string: "Hãy chuẩn bị bắt tay vào chuyến tham quan tuyệt vời của chúng tôi!"},
-      { speed: speeds.fast, string: "Hi vọng bạn có chuyến tham quan tuyệt vời",classes: ["blue"]},
+      { speed: speeds.fast, string: "Hãy bắt đầu chuyến tham quan của chúng ta!"},
+      { speed: speeds.fast, string: "Hi vọng bạn sẽ có khoảng thời gian tuyệt vời",classes: ["blue"]},
    ],
 };
 var characters = [];
@@ -1097,6 +1070,7 @@ function continueDialogue() {
 }
 
 startDialogue();
+
 
 
 

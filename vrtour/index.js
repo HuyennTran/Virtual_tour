@@ -326,7 +326,7 @@ AFRAME.registerComponent('vr-controller', {   //mouse-click controller
                 switch (current) {
                     case "#parabol":
                         console.log("parabol clicked");
-                        tab1.setAttribute('visible', 'true'); // gan lien voi auto sound luon di dm!
+                        tab1.setAttribute('visible', 'true'); 
                         pic1.setAttribute("visible", 'true');
                         container.setAttribute("position","5 2.5 -5"); 
                         close_icon.setAttribute("position","-0.8 1.4 -1")
@@ -335,7 +335,7 @@ AFRAME.registerComponent('vr-controller', {   //mouse-click controller
                         flag = 1;
                         break;
                       case "#lake":
-                        tab2.setAttribute('visible', 'true'); // gan lien voi auto sound luon di dm!
+                        tab2.setAttribute('visible', 'true'); 
                         pic2.setAttribute("visible", 'true');
                         container.setAttribute("position","3 2.5 -5");
                         close_icon.setAttribute("position","-0.8 1.4 -1")
@@ -344,7 +344,7 @@ AFRAME.registerComponent('vr-controller', {   //mouse-click controller
                         flag = 1;
                         break;
                       case "#TQB":
-                        tab3.setAttribute('visible', 'true'); // gan lien voi auto sound luon di dm!
+                        tab3.setAttribute('visible', 'true'); 
                         pic3.setAttribute("visible", 'true');
                         container.setAttribute("rotation", "0 135 0")
                         container.setAttribute("position","-4.15 2.9 4"); 
