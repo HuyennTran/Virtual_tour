@@ -744,7 +744,7 @@ left-controller></a-entity>
       </div>
             
       <button class="chatbot-toggler">
-        <span class="material-symbols-rounded"> mode_comment </span>
+        <span class="material-symbols-rounded"> question_answer </span>
         <span class="material-symbols-outlined"> close </span>
       </button>
       
@@ -755,8 +755,8 @@ left-controller></a-entity>
         </header>
         <ul class="chatbox">
           <li class="chat incoming">
-            <span class="material-symbols-outlined">smart_toy</span>
-            <p>Chào bạn👋<br>Tôi có thể giúp gì cho bạn?</p>
+            <span class="material-symbols-outlined">android</span>
+            <p>Hi👋<br>Mình có thể giúp gì cho bạn nhỉ?</p>
           </li>
         </ul>
         <div class="chat-input">
@@ -1092,7 +1092,7 @@ startDialogue();
 
   assets.addEventListener('progress', (event) => {
     const percent = Math.floor(event.detail.loadedBytes / event.detail.totalBytes * 100);
-    loadingText.textContent = `Loading... ${percent}%`;
+    loadingText.textContent = `Loading...`;
   });
 
   assets.addEventListener('loaded', () => {
