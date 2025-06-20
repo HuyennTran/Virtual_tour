@@ -584,6 +584,89 @@ left-controller></a-entity>
    </div>
 </a-entity>
 </a-scene>
+
+<!-- ✅ Nút Feedback (GÓC PHẢI TRÊN) -->
+<button id="feedbackBtn" style="
+  position: fixed;
+  top: 20px;    /* 👉 đổi bottom thành top */
+  right: 20px;
+  background: #ff9800;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 999;
+">
+  <span class="material-symbols-outlined" style="font-size: 32px; color: white;">
+    feedback
+  </span>
+</button>
+
+<!-- ✅ Form Feedback (ẩn ban đầu, đặt dưới nút) -->
+<div id="feedbackForm" style="
+  display: none;
+  position: fixed;
+  top: 100px;   /* 👉 đổi bottom thành top */
+  right: 20px;
+  background: pink;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 999;
+">
+  <h3 style="margin-top: 0;">Your feedback</h3>
+  <textarea id="feedbackText" rows="4" style="width: 100%;"></textarea>
+  <br><br>
+  <button id="submitFeedback" style="
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  ">Send</button>
+  <button id="closeFeedback" style="
+    margin-left: 10px;
+    background: #ccc;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  ">Close</button>
+</div>
+
+<!-- ✅ Script xử lý vẫn giữ nguyên -->
+<script>
+  const btn = document.getElementById('feedbackBtn');
+  const form = document.getElementById('feedbackForm');
+  const submit = document.getElementById('submitFeedback');
+  const close = document.getElementById('closeFeedback');
+  const textarea = document.getElementById('feedbackText');
+
+  btn.onclick = () => {
+    form.style.display = 'block';
+  };
+
+  close.onclick = () => {
+    form.style.display = 'none';
+  };
+
+  submit.onclick = () => {
+    const feedback = textarea.value.trim();
+    if (feedback) {
+      alert('Thanks for your feedback: ' + feedback);
+      textarea.value = '';
+      form.style.display = 'none';
+    } else {
+      alert('Please tell me your experience!');
+    }
+  };
+</script>
+
 </div> 
 
   
